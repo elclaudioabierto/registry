@@ -2,6 +2,14 @@ version: "1"
 name: "AgentKit Official Registry"
 description: "Starter official recipes for browser automation"
 recipes:
+  - id: media-transcription
+    kind: capability
+    name: Media Transcription (ffmpeg + yt-dlp + faster-whisper)
+    description: Download a YouTube video, extract audio, and run local transcription with faster-whisper.
+    aliases: [video-transcribe, yt-transcribe]
+    capabilities: [media, transcription]
+    tags: [ffmpeg, yt-dlp, whisper, audio]
+    path: recipes/media-transcription.yaml
   - id: fast-agent
     kind: package
     name: fast-agent

@@ -1,0 +1,43 @@
+kind: capability
+id: media-transcription
+name: Media Transcription (ffmpeg + yt-dlp + faster-whisper)
+description: Download a YouTube video, extract audio, and run local transcription with faster-whisper.
+aliases: [video-transcribe, yt-transcribe]
+capabilities: [media, transcription]
+steps:
+  - title: Install ffmpeg
+    type: install
+    package: ffmpeg
+    with:
+      manager: brew
+      name: ffmpeg
+  - title: Install yt-dlp
+    type: install
+    package: yt-dlp
+    with:
+      manager: brew
+      name: yt-dlp
+  - title: Install Python packages
+    type: install
+    package: faster-whisper
+    with:
+      manager: pip
+      name: faster-whisper
+  - title: Install spaCy
+    type: install
+    package: spacy
+    with:
+      manager: pip
+      name: spacy
+  - title: Download test video
+    type: run
+    command: yt-dlp -o "myvideo.%(ext)s" https://www.youtube.com/watch?v=t9fM-cTVyTg
+  - title: Transcribe with faster-whisper
+    type: run
+    command: python - <<'PY'
+from faster_whisper import WhisperModel
+model = WhisperModel("small")
+segments, info = model.transcribe("myvideo.mp4")
+for segment in segments:
+    print(f"[{segment.start:.2f}-{segment.end:.2f}] {segment.text}")
+PY
