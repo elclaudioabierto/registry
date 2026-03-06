@@ -34,10 +34,11 @@ steps:
     command: yt-dlp -o "myvideo.%(ext)s" https://www.youtube.com/watch?v=t9fM-cTVyTg
   - title: Transcribe with faster-whisper
     type: run
-    command: python - <<'PY'
-from faster_whisper import WhisperModel
-model = WhisperModel("small")
-segments, info = model.transcribe("myvideo.mp4")
-for segment in segments:
-    print(f"[{segment.start:.2f}-{segment.end:.2f}] {segment.text}")
-PY
+    command: |
+      python - <<'PY'
+      from faster_whisper import WhisperModel
+      model = WhisperModel("small")
+      segments, info = model.transcribe("myvideo.mp4")
+      for segment in segments:
+          print(f"[{segment.start:.2f}-{segment.end:.2f}] {segment.text}")
+      PY
