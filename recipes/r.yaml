@@ -1,0 +1,17 @@
+kind: package
+id: r
+name: R
+description: Install R and common packages for analysis on macOS.
+aliases: ["r-lang", "rstats"]
+capabilities: ["data-science", "statistics"]
+package: r
+steps:
+  - title: Install R (brew)
+    type: install
+    package: r
+    with:
+      manager: brew
+      name: r
+  - title: Install R packages
+    type: run
+    command: R -e "install.packages(c('tidyverse','lme4'), repos='https://cloud.r-project.org')"

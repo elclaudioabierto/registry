@@ -2,6 +2,15 @@ version: "1"
 name: "AgentKit Official Registry"
 description: "Starter official recipes for browser automation"
 recipes:
+  - id: r
+    kind: package
+    name: R
+    description: Install R and common packages for analysis on macOS.
+    aliases: [r-lang, rstats]
+    capabilities: [data-science, statistics]
+    package: r
+    tags: [r, statistics, data]
+    path: recipes/r.yaml
   - id: chromium
     path: recipes/chromium.yaml
     name: Chromium
