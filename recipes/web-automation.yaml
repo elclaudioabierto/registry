@@ -11,17 +11,11 @@ steps:
     with:
       manager: brew
       name: chromium
-  - title: Ensure pnpm is available
-    type: install
-    package: pnpm
-    with:
-      manager: npm
-      name: pnpm
   - title: Install Puppeteer
     type: install
     package: puppeteer
     with:
-      manager: pnpm
+      manager: npm
       name: puppeteer
   - title: Configure bot safeguards
     type: check
