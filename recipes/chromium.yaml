@@ -1,0 +1,15 @@
+id: chromium
+name: Chromium
+description: Install and run Chromium for deterministic automation
+aliases: [chrome, browser-chromium]
+capabilities: [browser, web-automation]
+package: playwright
+tags: [automation, browser]
+steps:
+  - title: Install Playwright Chromium
+    type: install
+    package: playwright
+    description: Install Playwright which bundles Chromium automation support
+  - title: Verify Chromium binary
+    type: run
+    command: pnpm exec playwright install chromium

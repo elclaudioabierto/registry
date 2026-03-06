@@ -1,0 +1,36 @@
+version: "1"
+name: "AgentKit Official Registry"
+description: "Starter official recipes for browser automation"
+recipes:
+  - id: chromium
+    path: recipes/chromium.yaml
+    name: Chromium
+    description: Install and use Chromium automation
+    aliases: [chrome, browser-chromium]
+    capabilities: [browser, web-automation]
+    package: playwright
+    tags: [automation, browser]
+  - id: puppeteer
+    path: recipes/puppeteer.yaml
+    name: Puppeteer
+    description: Use Puppeteer for browser automation tasks
+    aliases: [pptr]
+    capabilities: [browser, web-automation]
+    package: puppeteer
+    tags: [automation, browser]
+  - id: selenium
+    path: recipes/selenium.yaml
+    name: Selenium
+    description: Use Selenium WebDriver automation
+    aliases: [webdriver]
+    capabilities: [browser, web-automation]
+    package: selenium-webdriver
+    tags: [automation, browser]
+  - id: web-automation
+    path: recipes/web-automation.yaml
+    name: Web Automation Capability
+    description: Capability recipe for common web automation setup
+    aliases: [scrape]
+    capabilities: [web-automation]
+    tags: [capability]
+sources: []

@@ -1,0 +1,14 @@
+id: selenium
+name: Selenium
+description: Configure Selenium WebDriver stack
+aliases: [webdriver]
+capabilities: [browser, web-automation]
+package: selenium-webdriver
+tags: [automation, browser]
+steps:
+  - title: Install Selenium WebDriver
+    type: install
+    package: selenium-webdriver
+  - title: Add browser driver
+    type: note
+    description: Install a compatible driver binary (chromedriver or geckodriver)

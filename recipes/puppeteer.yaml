@@ -1,0 +1,14 @@
+id: puppeteer
+name: Puppeteer
+description: Configure Puppeteer for browser automation tasks
+aliases: [pptr]
+capabilities: [browser, web-automation]
+package: puppeteer
+tags: [automation, browser]
+steps:
+  - title: Install Puppeteer
+    type: install
+    package: puppeteer
+  - title: Sanity check launch
+    type: run
+    command: node -e "import('puppeteer').then(async p=>{const b=await p.launch({headless:true});await b.close();})"

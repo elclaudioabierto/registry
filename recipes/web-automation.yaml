@@ -1,0 +1,13 @@
+id: web-automation
+name: Web Automation Capability
+description: Baseline setup recipe for web automation workflows
+aliases: [scrape]
+capabilities: [web-automation]
+tags: [capability]
+steps:
+  - title: Choose a browser runtime
+    type: note
+    description: Pick Chromium, Puppeteer, or Selenium based on your project constraints
+  - title: Configure bot safeguards
+    type: check
+    description: Confirm usage follows target site terms and robots directives
