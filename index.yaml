@@ -2,6 +2,14 @@ version: "1"
 name: "AgentKit Official Registry"
 description: "Starter official recipes for browser automation"
 recipes:
+  - id: fast-agent
+    kind: package
+    name: fast-agent
+    description: Install fast-agent via uv (preferred) with pip3 fallback.
+    aliases: [fastagent, fast-agent.ai]
+    capabilities: [agent-runtime, ai-tools]
+    tags: [python, agents]
+    path: recipes/fast-agent.yaml
   - id: nextjs-tailwind-ui
     kind: capability
     name: Next.js + Tailwind UI

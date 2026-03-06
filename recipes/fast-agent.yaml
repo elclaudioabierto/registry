@@ -1,0 +1,20 @@
+kind: package
+id: fast-agent
+name: fast-agent
+description: Install fast-agent via uv (preferred) with pip3 fallback.
+aliases: ["fastagent", "fast-agent.ai"]
+capabilities: ["agent-runtime", "ai-tools"]
+package: fast-agent
+steps:
+  - title: Install fast-agent (uv)
+    type: run
+    command: uv pip install fast-agent
+  - title: Install fast-agent (pip3 fallback)
+    type: run
+    command: pip3 install fast-agent
+  - title: Verify install
+    type: run
+    command: fast-agent --help
+  - title: Reference
+    type: open
+    url: https://fast-agent.ai/
