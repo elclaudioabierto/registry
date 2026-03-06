@@ -2,6 +2,14 @@ version: "1"
 name: "AgentKit Official Registry"
 description: "Starter official recipes for browser automation"
 recipes:
+  - id: nextjs-tailwind-ui
+    kind: capability
+    name: Next.js + Tailwind UI
+    description: Scaffold a Next.js app with a Tailwind UI-style starter layout.
+    aliases: [next-stack, next-ui]
+    capabilities: [frontend-app]
+    tags: [nextjs, tailwind, ui]
+    path: recipes/nextjs-tailwind-ui.yaml
   - id: r
     kind: package
     name: R
