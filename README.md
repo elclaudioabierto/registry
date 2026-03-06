@@ -9,4 +9,4 @@ Official registry of AgentKit capabilities and packages.
 ## Related repos
 - Core: https://github.com/elclaudioabierto/agentkit
 - Registry template: https://github.com/elclaudioabierto/registry-template
-- Docs: https://github.com/elclaudioabierto/docs
+- Docs: https://elclaudioabierto.github.io/docs/
