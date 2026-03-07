@@ -66,6 +66,14 @@ recipes:
     capabilities: [databases]
     tags: [postgres, mongodb, duckdb]
     path: recipes/db-stack.yaml
+  - id: geospatial
+    kind: capability
+    name: Geospatial Stack
+    description: GDAL + QGIS + PostGIS + Python geospatial stack.
+    aliases: [gis]
+    capabilities: [geospatial]
+    tags: [gdal, qgis, postgis]
+    path: recipes/geospatial.yaml
   - id: computer-vision
     kind: capability
     name: Computer Vision Bundle

@@ -11,9 +11,9 @@ steps:
     with:
       manager: npm
       name: vercel
-  - title: Install AWS CLI
+  - title: Install AWS CLI v2
     type: install
-    package: awscli
+    package: awscli@2
     with:
       manager: brew
-      name: awscli
+      name: awscli@2
