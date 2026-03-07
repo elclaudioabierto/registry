@@ -5,12 +5,9 @@ description: Install Google Workspace CLI tools (gcloud + gsutil).
 aliases: [google]
 capabilities: [google, cloud]
 steps:
-  - title: Install Google Cloud SDK
+  - title: Install Google Workspace CLI
     type: install
-    package: google-cloud-sdk
+    package: @googleworkspace/cli
     with:
-      manager: brew
-      name: google-cloud-sdk
-  - title: Install gsutil (included)
-    type: note
-    description: gsutil is included with the Google Cloud SDK.
+      manager: npm
+      name: @googleworkspace/cli

@@ -1,0 +1,31 @@
+kind: capability
+id: faang-dev
+name: FAANG Dev Pack
+description: GitHub CLI + Docker + Terraform + kubectl.
+aliases: [dev-pack]
+capabilities: [devtools]
+steps:
+  - title: Install GitHub CLI
+    type: install
+    package: gh
+    with:
+      manager: brew
+      name: gh
+  - title: Install Docker
+    type: install
+    package: docker
+    with:
+      manager: brew
+      name: --cask docker
+  - title: Install Terraform
+    type: install
+    package: terraform
+    with:
+      manager: brew
+      name: terraform
+  - title: Install kubectl
+    type: install
+    package: kubectl
+    with:
+      manager: brew
+      name: kubectl

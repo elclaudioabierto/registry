@@ -1,0 +1,25 @@
+kind: capability
+id: faang-cloud
+name: FAANG Cloud Pack
+description: AWS + GCP + Azure CLIs.
+aliases: [cloud-pack]
+capabilities: [cloud, devops]
+steps:
+  - title: Install AWS CLI
+    type: install
+    package: awscli
+    with:
+      manager: brew
+      name: awscli
+  - title: Install Google Cloud SDK
+    type: install
+    package: google-cloud-sdk
+    with:
+      manager: brew
+      name: google-cloud-sdk
+  - title: Install Azure CLI
+    type: install
+    package: azure-cli
+    with:
+      manager: brew
+      name: azure-cli
