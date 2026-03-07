@@ -1,10 +1,10 @@
 kind: package
 id: fast-agent
 name: fast-agent
-description: Install fast-agent via uv in a local .venv.
+description: Install fast-agent via uv tool (fast-agent-mcp).
 aliases: ["fastagent", "fast-agent.ai"]
 capabilities: ["agent-runtime", "ai-tools"]
-package: fast-agent
+package: fast-agent-mcp
 steps:
   - title: Install uv
     type: install
@@ -12,15 +12,12 @@ steps:
     with:
       manager: brew
       name: uv
-  - title: Create .venv (uv)
+  - title: Install fast-agent (uv tool)
     type: run
-    command: uv venv .venv
-  - title: Install fast-agent (uv)
-    type: run
-    command: bash -lc "source .venv/bin/activate && uv pip install fast-agent"
+    command: uv tool install fast-agent-mcp
   - title: Verify install
     type: run
-    command: bash -lc "source .venv/bin/activate && fast-agent --help"
+    command: fast-agent --help
   - title: Reference
     type: open
     url: https://fast-agent.ai/
