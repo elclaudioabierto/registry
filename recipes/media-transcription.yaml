@@ -28,10 +28,10 @@ steps:
     command: uv venv .venv
   - title: Install Python packages (uv)
     type: run
-    command: . .venv/bin/activate && uv pip install faster-whisper spacy
+    command: bash -lc "source .venv/bin/activate && uv pip install faster-whisper spacy"
   - title: Download test video
     type: run
     command: yt-dlp -o "myvideo.%(ext)s" https://www.youtube.com/watch?v=t9fM-cTVyTg
   - title: Transcribe with faster-whisper
     type: run
-    command: . .venv/bin/activate && python -c "from faster_whisper import WhisperModel; model=WhisperModel('small'); segments,_=model.transcribe('myvideo.mp4'); [print(f'[{s.start:.2f}-{s.end:.2f}] {s.text}') for s in segments]"
+    command: bash -lc "source .venv/bin/activate && python -c \"from faster_whisper import WhisperModel; model=WhisperModel('small'); segments,_=model.transcribe('myvideo.mp4'); [print(f'[{s.start:.2f}-{s.end:.2f}] {s.text}') for s in segments]\""

@@ -17,10 +17,10 @@ steps:
     command: uv venv .venv
   - title: Install fast-agent (uv)
     type: run
-    command: . .venv/bin/activate && uv pip install fast-agent
+    command: bash -lc "source .venv/bin/activate && uv pip install fast-agent"
   - title: Verify install
     type: run
-    command: . .venv/bin/activate && fast-agent --help
+    command: bash -lc "source .venv/bin/activate && fast-agent --help"
   - title: Reference
     type: open
     url: https://fast-agent.ai/
