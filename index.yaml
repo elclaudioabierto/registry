@@ -2,6 +2,14 @@ version: "1"
 name: "AgentKit Official Registry"
 description: "Official AgentKit registry of capability bundles and recipes for agents."
 recipes:
+  - id: nextjs-postgres-auth
+    kind: capability
+    name: Next.js + Postgres + Auth.js
+    description: Full Next.js app with Tailwind, Prisma (Postgres), and Auth.js.
+    aliases: [next-postgres, next-auth]
+    capabilities: [frontend-app, backend, auth]
+    tags: [nextjs, postgres, prisma, auth]
+    path: recipes/nextjs-postgres-auth.yaml
   - id: backend-api
     kind: capability
     name: Backend API Stack

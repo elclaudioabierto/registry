@@ -1,0 +1,92 @@
+kind: capability
+id: nextjs-postgres-auth
+name: Next.js + Postgres + Auth.js
+description: Full Next.js app with Tailwind, Prisma (Postgres), Auth.js, and AgentKit hello world.
+aliases: [next-postgres, next-auth]
+capabilities: [frontend-app, backend, auth]
+steps:
+  - title: Install Node.js
+    type: install
+    package: node
+    with:
+      manager: brew
+      name: node
+  - title: Install pnpm
+    type: run
+    command: npm install -g pnpm
+  - title: Scaffold Next.js app
+    type: run
+    command: pnpm dlx create-next-app@latest agentkit-stack --ts --tailwind --app --eslint
+  - title: Install Prisma + Auth.js
+    type: run
+    command: |
+      bash -lc "cd agentkit-stack && pnpm add prisma @prisma/client next-auth"
+  - title: Initialize Prisma
+    type: run
+    command: |
+      bash -lc "cd agentkit-stack && npx prisma init"
+  - title: Write Prisma schema
+    type: run
+    command: |
+      bash -lc "cat > agentkit-stack/prisma/schema.prisma <<'PRISMA'
+      datasource db {
+        provider = \"postgresql\"
+        url      = env(\"DATABASE_URL\")
+      }
+
+      generator client {
+        provider = \"prisma-client-js\"
+      }
+
+      model User {
+        id        String   @id @default(cuid())
+        email     String   @unique
+        name      String?
+        createdAt DateTime @default(now())
+      }
+      PRISMA"
+  - title: Configure Auth.js (basic credentials)
+    type: run
+    command: |
+      bash -lc "cat > agentkit-stack/app/api/auth/[...nextauth]/route.ts <<'AUTH'
+      import NextAuth from \"next-auth\";
+      import Credentials from \"next-auth/providers/credentials\";
+
+      const handler = NextAuth({
+        providers: [
+          Credentials({
+            name: \"Credentials\",
+            credentials: { email: { label: \"Email\", type: \"email\" } },
+            async authorize(credentials) {
+              if (!credentials?.email) return null;
+              return { id: credentials.email, email: credentials.email };
+            }
+          })
+        ],
+        session: { strategy: \"jwt\" }
+      });
+
+      export { handler as GET, handler as POST };
+      AUTH"
+  - title: Update homepage
+    type: run
+    command: |
+      bash -lc "cat > agentkit-stack/app/page.tsx <<'PAGE'
+      export default function Home() {
+        return (
+          <main className=\"min-h-screen bg-white text-zinc-900\">
+            <div className=\"mx-auto max-w-3xl px-6 py-16\">
+              <h1 className=\"text-4xl font-semibold\">AgentKit Stack</h1>
+              <p className=\"mt-4 text-zinc-600\">Next.js + Postgres + Auth.js scaffolded by AgentKit.</p>
+              <div className=\"mt-6 rounded-xl border border-zinc-200 bg-zinc-50 p-4\">
+                <p className=\"text-sm\">Set <code className=\"font-mono\">DATABASE_URL</code> then run:</p>
+                <pre className=\"mt-2 text-sm\">npx prisma migrate dev</pre>
+              </div>
+            </div>
+          </main>
+        );
+      }
+      PAGE"
+  - title: Note
+    type: note
+    description: Set DATABASE_URL in agentkit-stack/.env and run `npx prisma migrate dev` to create the database.
