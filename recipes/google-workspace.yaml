@@ -7,7 +7,7 @@ capabilities: [google, cloud]
 steps:
   - title: Install Google Workspace CLI
     type: install
-    package: @googleworkspace/cli
+    package: "@googleworkspace/cli"
     with:
       manager: npm
-      name: @googleworkspace/cli
+      name: "@googleworkspace/cli"
