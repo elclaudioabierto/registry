@@ -13,11 +13,59 @@ recipes:
   - id: fast-agent
     kind: package
     name: fast-agent
-    description: Install fast-agent via uv (preferred) with pip3 fallback.
+    description: Install fast-agent via uv tool (fast-agent-mcp).
     aliases: [fastagent, fast-agent.ai]
     capabilities: [agent-runtime, ai-tools]
     tags: [python, agents]
     path: recipes/fast-agent.yaml
+  - id: tensorflow-cpu
+    kind: capability
+    name: TensorFlow (CPU)
+    description: Install TensorFlow CPU in a local uv venv.
+    aliases: [tf-cpu]
+    capabilities: [ml, tensorflow]
+    tags: [tensorflow, cpu]
+    path: recipes/tensorflow-cpu.yaml
+  - id: tensorflow-gpu
+    kind: capability
+    name: TensorFlow (GPU)
+    description: Install TensorFlow GPU in a local uv venv.
+    aliases: [tf-gpu]
+    capabilities: [ml, tensorflow, gpu]
+    tags: [tensorflow, gpu]
+    path: recipes/tensorflow-gpu.yaml
+  - id: presidio
+    kind: capability
+    name: Presidio (PII detection/redaction)
+    description: Install Presidio analyzer + anonymizer in a local uv venv.
+    aliases: [redaction, pii]
+    capabilities: [redaction, privacy]
+    tags: [presidio, pii]
+    path: recipes/presidio.yaml
+  - id: mediapipe
+    kind: capability
+    name: MediaPipe
+    description: Install MediaPipe in a local uv venv.
+    aliases: [computer-vision, cv]
+    capabilities: [computer-vision]
+    tags: [mediapipe, vision]
+    path: recipes/mediapipe.yaml
+  - id: markdown-pandoc
+    kind: capability
+    name: Markdown + Pandoc
+    description: Install Pandoc for robust markdown conversion.
+    aliases: [markdown]
+    capabilities: [markdown, docs]
+    tags: [pandoc]
+    path: recipes/markdown-pandoc.yaml
+  - id: latex
+    kind: capability
+    name: LaTeX
+    description: Install MacTeX for LaTeX toolchain.
+    aliases: [tex]
+    capabilities: [latex, docs]
+    tags: [latex]
+    path: recipes/latex.yaml
   - id: nextjs-tailwind-ui
     kind: capability
     name: Next.js + Tailwind UI
