@@ -11,9 +11,8 @@ steps:
     with:
       manager: npm
       name: vercel
-  - title: Install AWS CLI v2
-    type: install
-    package: awscli@2
-    with:
-      manager: brew
-      name: awscli@2
+  - title: Install AWS CLI v2 (official installer)
+    type: run
+    command: |
+      curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+      sudo installer -pkg AWSCLIV2.pkg -target /
