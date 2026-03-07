@@ -2,6 +2,30 @@ version: "1"
 name: "AgentKit Official Registry"
 description: "Official AgentKit registry of capability bundles and recipes for agents."
 recipes:
+  - id: react-flow
+    kind: capability
+    name: React Flow
+    description: Scaffold a minimal React + TypeScript app with React Flow.
+    aliases: [reactflow]
+    capabilities: [frontend-app, visualization]
+    tags: [react, reactflow]
+    path: recipes/react-flow.yaml
+  - id: langchain
+    kind: capability
+    name: LangChain (JS)
+    description: Scaffold a minimal Node project with LangChain.
+    aliases: [lc]
+    capabilities: [ai]
+    tags: [langchain]
+    path: recipes/langchain.yaml
+  - id: langgraph
+    kind: capability
+    name: LangGraph JS
+    description: Scaffold a minimal Node project with LangGraph.js.
+    aliases: [langgraphjs]
+    capabilities: [ai]
+    tags: [langgraph]
+    path: recipes/langgraph.yaml
   - id: nextjs-postgres-auth
     kind: capability
     name: Next.js + Postgres + Auth.js

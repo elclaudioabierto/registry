@@ -1,0 +1,13 @@
+kind: capability
+id: langgraph
+name: LangGraph JS
+description: Scaffold a minimal Node project with LangGraph.js.
+aliases: [langgraphjs]
+capabilities: [ai]
+steps:
+  - title: Init project
+    type: run
+    command: mkdir langgraph-demo && cd langgraph-demo && npm init -y
+  - title: Install LangGraph
+    type: run
+    command: cd langgraph-demo && npm install @langchain/langgraph

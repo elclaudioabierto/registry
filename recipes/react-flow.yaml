@@ -1,0 +1,13 @@
+kind: capability
+id: react-flow
+name: React Flow
+description: Scaffold a minimal React + TypeScript app with React Flow.
+aliases: [reactflow]
+capabilities: [frontend-app, visualization]
+steps:
+  - title: Scaffold Vite React + TS app
+    type: run
+    command: npm create vite@latest reactflow-demo -- --template react-ts
+  - title: Install React Flow
+    type: run
+    command: cd reactflow-demo && npm install reactflow

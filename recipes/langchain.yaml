@@ -1,0 +1,13 @@
+kind: capability
+id: langchain
+name: LangChain (JS)
+description: Scaffold a minimal Node project with LangChain.
+aliases: [lc]
+capabilities: [ai]
+steps:
+  - title: Init project
+    type: run
+    command: mkdir langchain-demo && cd langchain-demo && npm init -y
+  - title: Install LangChain
+    type: run
+    command: cd langchain-demo && npm install langchain
