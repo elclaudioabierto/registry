@@ -2,6 +2,14 @@ version: "1"
 name: "AgentKit Official Registry"
 description: "Official AgentKit registry of capability bundles and recipes for agents."
 recipes:
+  - id: agent-graph-demo
+    kind: capability
+    name: Agent Graph Demo (Next.js + React Flow)
+    description: Next.js app with React Flow and LangGraph/LangChain deps for an agent graph demo.
+    aliases: [agent-graph]
+    capabilities: [frontend-app, ai, visualization]
+    tags: [nextjs, reactflow, langgraph, langchain]
+    path: recipes/agent-graph-demo.yaml
   - id: react-flow
     kind: capability
     name: React Flow

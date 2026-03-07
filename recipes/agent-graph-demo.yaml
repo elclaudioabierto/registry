@@ -1,0 +1,59 @@
+kind: capability
+id: agent-graph-demo
+name: Agent Graph Demo (Next.js + React Flow)
+description: Next.js app with React Flow and LangGraph/LangChain deps for an agent graph demo.
+aliases: [agent-graph]
+capabilities: [frontend-app, ai, visualization]
+steps:
+  - title: Install Node.js
+    type: install
+    package: node
+    with:
+      manager: brew
+      name: node
+  - title: Install pnpm
+    type: run
+    command: npm install -g pnpm
+  - title: Scaffold Next.js app
+    type: run
+    command: pnpm dlx create-next-app@14.2.4 agent-graph-demo --ts --tailwind --app --eslint --use-pnpm --yes
+  - title: Install React Flow + LangGraph + LangChain
+    type: run
+    command: bash -lc "cd agent-graph-demo && pnpm add reactflow @langchain/langgraph langchain"
+  - title: Add demo page
+    type: run
+    command: |
+      bash -lc "cat > agent-graph-demo/app/page.tsx <<'PAGE'
+      'use client';
+      import React from 'react';
+      import ReactFlow, { Background, Controls, MiniMap } from 'reactflow';
+      import 'reactflow/dist/style.css';
+
+      const nodes = [
+        { id: '1', position: { x: 0, y: 0 }, data: { label: 'Agent' } },
+        { id: '2', position: { x: 200, y: 100 }, data: { label: 'Tool' } },
+        { id: '3', position: { x: 0, y: 200 }, data: { label: 'Memory' } }
+      ];
+      const edges = [
+        { id: 'e1-2', source: '1', target: '2' },
+        { id: 'e1-3', source: '1', target: '3' }
+      ];
+
+      export default function Home() {
+        return (
+          <main className="min-h-screen bg-white text-zinc-900">
+            <div className="mx-auto max-w-5xl px-6 py-10">
+              <h1 className="text-4xl font-semibold">Agent Graph Demo</h1>
+              <p className="mt-2 text-zinc-600">React Flow + LangGraph/LangChain dependencies ready.</p>
+              <div className="mt-6 h-[520px] rounded-xl border border-zinc-200">
+                <ReactFlow nodes={nodes} edges={edges} fitView>
+                  <MiniMap />
+                  <Controls />
+                  <Background />
+                </ReactFlow>
+              </div>
+            </div>
+          </main>
+        );
+      }
+      PAGE"
