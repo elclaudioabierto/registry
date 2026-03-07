@@ -16,3 +16,9 @@ steps:
     command: |
       curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
       sudo installer -pkg AWSCLIV2.pkg -target /
+  - title: Verify Vercel CLI
+    type: run
+    command: vercel --version
+  - title: Verify AWS CLI
+    type: run
+    command: aws --version
