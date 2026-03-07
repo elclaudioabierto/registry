@@ -6,20 +6,11 @@ aliases: [ai]
 capabilities: [ai, devtools]
 steps:
   - title: Install Codex CLI
-    type: install
-    package: "@openai/codex"
-    with:
-      manager: npm
-      name: "@openai/codex"
+    type: run
+    command: npm install -g @openai/codex
   - title: Install Gemini CLI
-    type: install
-    package: "@google/gemini-cli"
-    with:
-      manager: npm
-      name: "@google/gemini-cli"
+    type: run
+    command: npm install -g @google/gemini-cli
   - title: Install Claude Code
-    type: install
-    package: "@anthropic-ai/claude-code"
-    with:
-      manager: npm
-      name: "@anthropic-ai/claude-code"
+    type: run
+    command: npm install -g @anthropic-ai/claude-code
