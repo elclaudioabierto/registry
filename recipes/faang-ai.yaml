@@ -7,19 +7,19 @@ capabilities: [ai, devtools]
 steps:
   - title: Install Codex CLI
     type: install
-    package: @openai/codex
+    package: "@openai/codex"
     with:
       manager: npm
-      name: @openai/codex
+      name: "@openai/codex"
   - title: Install Gemini CLI
     type: install
-    package: @google/gemini-cli
+    package: "@google/gemini-cli"
     with:
       manager: npm
-      name: @google/gemini-cli
+      name: "@google/gemini-cli"
   - title: Install Claude Code
     type: install
-    package: @anthropic-ai/claude-code
+    package: "@anthropic-ai/claude-code"
     with:
       manager: npm
-      name: @anthropic-ai/claude-code
+      name: "@anthropic-ai/claude-code"
