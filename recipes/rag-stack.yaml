@@ -18,11 +18,8 @@ steps:
       manager: brew
       name: node
   - title: Install pnpm
-    type: install
-    package: pnpm
-    with:
-      manager: npm
-      name: pnpm
+    type: run
+    command: npm install -g pnpm
   - title: Create .venv (uv)
     type: run
     command: uv venv .venv

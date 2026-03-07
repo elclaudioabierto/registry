@@ -6,11 +6,8 @@ aliases: [cloud]
 capabilities: [cloud, devops]
 steps:
   - title: Install Vercel CLI
-    type: install
-    package: vercel
-    with:
-      manager: npm
-      name: vercel
+    type: run
+    command: npm install -g vercel
   - title: Install AWS CLI v2 (official installer)
     type: run
     command: |

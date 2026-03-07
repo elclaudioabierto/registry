@@ -12,11 +12,8 @@ steps:
       manager: brew
       name: node
   - title: Install pnpm
-    type: install
-    package: pnpm
-    with:
-      manager: npm
-      name: pnpm
+    type: run
+    command: npm install -g pnpm
   - title: Install eslint + prettier
     type: run
     command: npm install -g eslint prettier
