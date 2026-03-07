@@ -1,0 +1,25 @@
+kind: capability
+id: db-stack
+name: Databases Stack
+description: Install PostgreSQL, MongoDB, and DuckDB.
+aliases: [db]
+capabilities: [databases]
+steps:
+  - title: Install PostgreSQL
+    type: install
+    package: postgresql
+    with:
+      manager: brew
+      name: postgresql
+  - title: Install MongoDB Community
+    type: install
+    package: mongodb-community@7.0
+    with:
+      manager: brew
+      name: mongodb-community@7.0
+  - title: Install DuckDB
+    type: install
+    package: duckdb
+    with:
+      manager: brew
+      name: duckdb

@@ -1,0 +1,25 @@
+kind: capability
+id: ai-cli
+name: AI CLIs
+description: Install Codex, Gemini, and Claude Code CLIs.
+aliases: [ai]
+capabilities: [ai, devtools]
+steps:
+  - title: Install Codex CLI
+    type: install
+    package: @openai/codex
+    with:
+      manager: npm
+      name: @openai/codex
+  - title: Install Gemini CLI
+    type: install
+    package: @google/gemini-cli
+    with:
+      manager: npm
+      name: @google/gemini-cli
+  - title: Install Claude Code
+    type: install
+    package: @anthropic-ai/claude-code
+    with:
+      manager: npm
+      name: @anthropic-ai/claude-code

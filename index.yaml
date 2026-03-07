@@ -2,6 +2,46 @@ version: "1"
 name: "AgentKit Official Registry"
 description: "Starter official recipes for browser automation"
 recipes:
+  - id: cloud-cli
+    kind: capability
+    name: Cloud CLIs
+    description: Install Vercel CLI and AWS CLI.
+    aliases: [cloud]
+    capabilities: [cloud, devops]
+    tags: [vercel, aws]
+    path: recipes/cloud-cli.yaml
+  - id: ai-cli
+    kind: capability
+    name: AI CLIs
+    description: Install Codex, Gemini, and Claude Code CLIs.
+    aliases: [ai]
+    capabilities: [ai, devtools]
+    tags: [codex, gemini, claude]
+    path: recipes/ai-cli.yaml
+  - id: openclaw
+    kind: capability
+    name: OpenClaw
+    description: Install the OpenClaw CLI and gateway tools.
+    aliases: [openclaw]
+    capabilities: [openclaw]
+    tags: [openclaw]
+    path: recipes/openclaw.yaml
+  - id: google-workspace
+    kind: capability
+    name: Google Workspace CLI
+    description: Install Google Cloud SDK tools.
+    aliases: [google]
+    capabilities: [google, cloud]
+    tags: [gcloud]
+    path: recipes/google-workspace.yaml
+  - id: db-stack
+    kind: capability
+    name: Databases Stack
+    description: Install PostgreSQL, MongoDB, and DuckDB.
+    aliases: [db]
+    capabilities: [databases]
+    tags: [postgres, mongodb, duckdb]
+    path: recipes/db-stack.yaml
   - id: computer-vision
     kind: capability
     name: Computer Vision Bundle

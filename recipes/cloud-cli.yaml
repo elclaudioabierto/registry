@@ -1,0 +1,19 @@
+kind: capability
+id: cloud-cli
+name: Cloud CLIs
+description: Install Vercel CLI and AWS CLI.
+aliases: [cloud]
+capabilities: [cloud, devops]
+steps:
+  - title: Install Vercel CLI
+    type: install
+    package: vercel
+    with:
+      manager: npm
+      name: vercel
+  - title: Install AWS CLI
+    type: install
+    package: awscli
+    with:
+      manager: brew
+      name: awscli

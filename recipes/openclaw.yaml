@@ -1,0 +1,13 @@
+kind: capability
+id: openclaw
+name: OpenClaw
+description: Install the OpenClaw CLI and gateway tools.
+aliases: [openclaw]
+capabilities: [openclaw]
+steps:
+  - title: Install OpenClaw
+    type: install
+    package: openclaw
+    with:
+      manager: npm
+      name: openclaw
