@@ -1,0 +1,13 @@
+kind: capability
+id: latex
+name: LaTeX
+description: Install MacTeX for LaTeX toolchain.
+aliases: [tex]
+capabilities: [latex, docs]
+steps:
+  - title: Install MacTeX
+    type: install
+    package: mactex
+    with:
+      manager: brew
+      name: mactex

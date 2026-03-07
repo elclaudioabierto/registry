@@ -1,0 +1,22 @@
+kind: capability
+id: tensorflow-gpu
+name: TensorFlow (GPU)
+description: Install TensorFlow GPU in a local uv venv (CUDA setup required).
+aliases: [tf-gpu]
+capabilities: [ml, tensorflow, gpu]
+steps:
+  - title: Install uv
+    type: install
+    package: uv
+    with:
+      manager: brew
+      name: uv
+  - title: Create .venv (uv)
+    type: run
+    command: uv venv .venv
+  - title: Install TensorFlow (GPU)
+    type: run
+    command: bash -lc "source .venv/bin/activate && uv pip install tensorflow"
+  - title: Note about CUDA
+    type: note
+    description: Ensure CUDA + cuDNN are installed and compatible with your GPU.

@@ -1,0 +1,13 @@
+kind: capability
+id: markdown-pandoc
+name: Markdown + Pandoc
+description: Install Pandoc for robust markdown conversion.
+aliases: [markdown]
+capabilities: [markdown, docs]
+steps:
+  - title: Install Pandoc
+    type: install
+    package: pandoc
+    with:
+      manager: brew
+      name: pandoc
