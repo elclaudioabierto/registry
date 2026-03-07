@@ -114,6 +114,14 @@ recipes:
     capabilities: [geospatial]
     tags: [gdal, qgis, postgis]
     path: recipes/geospatial.yaml
+  - id: dev-aliases
+    kind: capability
+    name: Dev Aliases (zsh)
+    description: Useful zsh aliases for Node, Vercel, ports, and utilities.
+    aliases: [aliases, zsh]
+    capabilities: [devtools]
+    tags: [zsh, aliases]
+    path: recipes/dev-aliases.yaml
   - id: computer-vision
     kind: capability
     name: Computer Vision Bundle

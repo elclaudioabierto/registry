@@ -1,0 +1,47 @@
+kind: capability
+id: dev-aliases
+name: Dev Aliases (zsh)
+description: Useful zsh aliases for Node, Vercel, ports, and utilities.
+aliases: [aliases, zsh]
+capabilities: [devtools]
+steps:
+  - title: Append aliases to ~/.zshrc
+    type: append
+    path: ~/.zshrc
+    content: |
+      # AgentKit Dev Aliases
+      # Node / package managers
+      alias ni='npm install'
+      alias nid='npm install --save-dev'
+      alias nr='npm run'
+      alias nrd='npm run dev'
+      alias nrb='npm run build'
+      alias nrs='npm run start'
+
+      # Vercel
+      alias vp='npx vercel --prod --yes'
+      alias vd='npx vercel'
+      alias vl='vercel logs'
+
+      # Local dev helpers
+      alias psg='ps aux | grep -i'
+      alias ports='lsof -i -P | grep LISTEN'
+      alias kill3000='lsof -ti:3000 | xargs kill -9'
+      alias kill3001='lsof -ti:3001 | xargs kill -9'
+      alias kill5000='lsof -ti:5000 | xargs kill -9'
+
+      # Quick project serving
+      alias serve='python3 -m http.server'
+
+      # Common directories (edit to match your machine)
+      alias dev='cd ~/dev'
+      alias projects='cd ~/projects'
+
+      # Utilities
+      alias zshreload='source ~/.zshrc'
+      alias myip='curl ifconfig.me'
+      alias flushdns='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
+
+      # ffmpeg helpers
+      alias ffprobequick='ffprobe -hide_banner -show_format -show_streams'
+      alias ffmp4='ffmpeg -i'
