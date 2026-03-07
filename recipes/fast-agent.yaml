@@ -6,10 +6,7 @@ aliases: ["fastagent", "fast-agent.ai"]
 capabilities: ["agent-runtime", "ai-tools"]
 package: fast-agent
 steps:
-  - title: Install fast-agent (uv)
-    type: run
-    command: uv pip install fast-agent
-  - title: Install fast-agent (pip3 fallback)
+  - title: Install fast-agent (pip3)
     type: run
     command: pip3 install fast-agent
   - title: Verify install
