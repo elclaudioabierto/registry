@@ -17,21 +17,15 @@ steps:
     with:
       manager: brew
       name: yt-dlp
-  - title: Install Python packages
-    type: install
-    package: faster-whisper
-    with:
-      manager: pip
-      name: faster-whisper
-  - title: Install spaCy
-    type: install
-    package: spacy
-    with:
-      manager: pip
-      name: spacy
+  - title: Create .venv (uv)
+    type: run
+    command: uv venv .venv
+  - title: Install Python packages (uv)
+    type: run
+    command: . .venv/bin/activate && uv pip install faster-whisper spacy
   - title: Download test video
     type: run
     command: yt-dlp -o "myvideo.%(ext)s" https://www.youtube.com/watch?v=t9fM-cTVyTg
   - title: Transcribe with faster-whisper
     type: run
-    command: python -c "from faster_whisper import WhisperModel; model=WhisperModel('small'); segments,_=model.transcribe('myvideo.mp4'); [print(f'[{s.start:.2f}-{s.end:.2f}] {s.text}') for s in segments]"
+    command: . .venv/bin/activate && python -c "from faster_whisper import WhisperModel; model=WhisperModel('small'); segments,_=model.transcribe('myvideo.mp4'); [print(f'[{s.start:.2f}-{s.end:.2f}] {s.text}') for s in segments]"
