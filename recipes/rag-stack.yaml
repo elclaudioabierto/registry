@@ -1,7 +1,7 @@
 kind: capability
 id: rag-stack
 name: RAG Stack
-description: markitdown + chromadb + Next.js search UI + litestream.
+description: markitdown + chromadb + Next.js search UI (optionally Streamlit).
 aliases: [rag]
 capabilities: [rag, search]
 steps:
@@ -29,12 +29,9 @@ steps:
   - title: Install markitdown + chromadb
     type: run
     command: bash -lc "source .venv/bin/activate && uv pip install markitdown chromadb"
-  - title: Install Litestream
-    type: install
-    package: litestream
-    with:
-      manager: brew
-      name: litestream
+  - title: Install Streamlit (optional UI)
+    type: run
+    command: bash -lc "source .venv/bin/activate && uv pip install streamlit"
   - title: Scaffold Next.js search UI
     type: run
     command: pnpm dlx create-next-app@latest rag-search-ui --ts --tailwind --app --eslint
