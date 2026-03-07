@@ -1,0 +1,22 @@
+kind: capability
+id: frontend-dev
+name: Frontend Dev Bundle
+description: Node.js + pnpm + eslint + prettier.
+aliases: [frontend]
+capabilities: [frontend-app, devtools]
+steps:
+  - title: Install Node.js
+    type: install
+    package: node
+    with:
+      manager: brew
+      name: node
+  - title: Install pnpm
+    type: install
+    package: pnpm
+    with:
+      manager: npm
+      name: pnpm
+  - title: Install eslint + prettier
+    type: run
+    command: npm install -g eslint prettier

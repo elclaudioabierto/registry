@@ -2,6 +2,46 @@ version: "1"
 name: "AgentKit Official Registry"
 description: "Starter official recipes for browser automation"
 recipes:
+  - id: computer-vision
+    kind: capability
+    name: Computer Vision Bundle
+    description: MediaPipe + OpenCV + Pillow + ffmpeg in a local uv venv.
+    aliases: [cv]
+    capabilities: [computer-vision]
+    tags: [mediapipe, opencv, ffmpeg]
+    path: recipes/computer-vision.yaml
+  - id: redaction
+    kind: capability
+    name: Redaction Bundle
+    description: Presidio + spaCy + PDF tools for PII redaction.
+    aliases: [pii-redaction, presidio]
+    capabilities: [redaction, privacy]
+    tags: [presidio, spacy]
+    path: recipes/redaction.yaml
+  - id: media-toolkit
+    kind: capability
+    name: Media Toolkit
+    description: ffmpeg + yt-dlp + faster-whisper in a local uv venv.
+    aliases: [media, transcription]
+    capabilities: [media, transcription]
+    tags: [ffmpeg, yt-dlp, whisper]
+    path: recipes/media-toolkit.yaml
+  - id: frontend-dev
+    kind: capability
+    name: Frontend Dev Bundle
+    description: Node.js + pnpm + eslint + prettier.
+    aliases: [frontend]
+    capabilities: [frontend-app, devtools]
+    tags: [node, pnpm, eslint, prettier]
+    path: recipes/frontend-dev.yaml
+  - id: rag-stack
+    kind: capability
+    name: RAG Stack
+    description: markitdown + chromadb + Next.js search UI with Litestream.
+    aliases: [rag]
+    capabilities: [rag, search]
+    tags: [markitdown, chromadb, nextjs]
+    path: recipes/rag-stack.yaml
   - id: media-transcription
     kind: capability
     name: Media Transcription (ffmpeg + yt-dlp + faster-whisper)

@@ -1,0 +1,25 @@
+kind: capability
+id: computer-vision
+name: Computer Vision Bundle
+description: MediaPipe + OpenCV + Pillow + ffmpeg in a local uv venv.
+aliases: [cv]
+capabilities: [computer-vision]
+steps:
+  - title: Install uv
+    type: install
+    package: uv
+    with:
+      manager: brew
+      name: uv
+  - title: Install ffmpeg
+    type: install
+    package: ffmpeg
+    with:
+      manager: brew
+      name: ffmpeg
+  - title: Create .venv (uv)
+    type: run
+    command: uv venv .venv
+  - title: Install CV Python packages
+    type: run
+    command: bash -lc "source .venv/bin/activate && uv pip install mediapipe opencv-python pillow"
