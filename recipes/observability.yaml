@@ -1,0 +1,25 @@
+kind: capability
+id: observability
+name: Observability Stack
+description: Grafana + Prometheus + Loki for local observability.
+aliases: [o11y]
+capabilities: [observability, devops]
+steps:
+  - title: Install Grafana
+    type: install
+    package: grafana
+    with:
+      manager: brew
+      name: grafana
+  - title: Install Prometheus
+    type: install
+    package: prometheus
+    with:
+      manager: brew
+      name: prometheus
+  - title: Install Loki
+    type: install
+    package: loki
+    with:
+      manager: brew
+      name: loki

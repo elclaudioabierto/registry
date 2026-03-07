@@ -1,0 +1,25 @@
+kind: capability
+id: git-tools
+name: Git Tools
+description: GitHub CLI + git-lfs + lazygit.
+aliases: [git]
+capabilities: [devtools]
+steps:
+  - title: Install GitHub CLI
+    type: install
+    package: gh
+    with:
+      manager: brew
+      name: gh
+  - title: Install git-lfs
+    type: install
+    package: git-lfs
+    with:
+      manager: brew
+      name: git-lfs
+  - title: Install lazygit
+    type: install
+    package: lazygit
+    with:
+      manager: brew
+      name: lazygit

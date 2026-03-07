@@ -2,6 +2,46 @@ version: "1"
 name: "AgentKit Official Registry"
 description: "Official AgentKit registry of capability bundles and recipes for agents."
 recipes:
+  - id: backend-api
+    kind: capability
+    name: Backend API Stack
+    description: FastAPI + Uvicorn + HTTPie in a local uv venv.
+    aliases: [api-backend]
+    capabilities: [api, backend]
+    tags: [fastapi, uvicorn]
+    path: recipes/backend-api.yaml
+  - id: data-science
+    kind: capability
+    name: Data Science Stack
+    description: Jupyter + NumPy + pandas + matplotlib + seaborn.
+    aliases: [datasci]
+    capabilities: [data-science]
+    tags: [jupyter, pandas, numpy]
+    path: recipes/data-science.yaml
+  - id: container-dev
+    kind: capability
+    name: Container Dev Stack
+    description: Docker + kubectl + Helm + k9s.
+    aliases: [containers]
+    capabilities: [devops]
+    tags: [docker, kubernetes, helm]
+    path: recipes/container-dev.yaml
+  - id: observability
+    kind: capability
+    name: Observability Stack
+    description: Grafana + Prometheus + Loki for local observability.
+    aliases: [o11y]
+    capabilities: [observability, devops]
+    tags: [grafana, prometheus, loki]
+    path: recipes/observability.yaml
+  - id: git-tools
+    kind: capability
+    name: Git Tools
+    description: GitHub CLI + git-lfs + lazygit.
+    aliases: [git]
+    capabilities: [devtools]
+    tags: [git, gh, git-lfs, lazygit]
+    path: recipes/git-tools.yaml
   - id: scraping-stack
     kind: capability
     name: Scraping Stack

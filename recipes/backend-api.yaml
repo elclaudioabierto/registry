@@ -1,0 +1,19 @@
+kind: capability
+id: backend-api
+name: Backend API Stack
+description: FastAPI + Uvicorn + HTTPie in a local uv venv.
+aliases: [api-backend]
+capabilities: [api, backend]
+steps:
+  - title: Install uv
+    type: install
+    package: uv
+    with:
+      manager: brew
+      name: uv
+  - title: Create .venv (uv)
+    type: run
+    command: uv venv .venv
+  - title: Install FastAPI stack
+    type: run
+    command: bash -lc "source .venv/bin/activate && uv pip install fastapi uvicorn httpie"

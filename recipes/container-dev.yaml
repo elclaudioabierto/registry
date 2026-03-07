@@ -1,0 +1,31 @@
+kind: capability
+id: container-dev
+name: Container Dev Stack
+description: Docker + kubectl + Helm + k9s.
+aliases: [containers]
+capabilities: [devops]
+steps:
+  - title: Install Docker
+    type: install
+    package: docker
+    with:
+      manager: brew
+      name: --cask docker
+  - title: Install kubectl
+    type: install
+    package: kubectl
+    with:
+      manager: brew
+      name: kubectl
+  - title: Install Helm
+    type: install
+    package: helm
+    with:
+      manager: brew
+      name: helm
+  - title: Install k9s
+    type: install
+    package: k9s
+    with:
+      manager: brew
+      name: k9s
