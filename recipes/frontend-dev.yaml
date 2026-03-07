@@ -1,7 +1,7 @@
 kind: capability
 id: frontend-dev
 name: Frontend Dev Bundle
-description: Node.js + pnpm + eslint + prettier.
+description: Node + pnpm + eslint + prettier for frontend dev.
 aliases: [frontend]
 capabilities: [frontend-app, devtools]
 steps:

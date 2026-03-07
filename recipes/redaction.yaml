@@ -1,7 +1,7 @@
 kind: capability
 id: redaction
 name: Redaction Bundle
-description: Presidio + spaCy + PDF tools for PII redaction in a local uv venv.
+description: Presidio + spaCy + PDF tools for redaction.
 aliases: [pii-redaction, presidio]
 capabilities: [redaction, privacy]
 steps:

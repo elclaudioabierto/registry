@@ -1,7 +1,7 @@
 kind: capability
 id: presidio
 name: Presidio (PII detection/redaction)
-description: Install Presidio analyzer + anonymizer in a local uv venv.
+description: Install Presidio analyzer + anonymizer for PII redaction.
 aliases: [redaction, pii]
 capabilities: [redaction, privacy]
 steps:

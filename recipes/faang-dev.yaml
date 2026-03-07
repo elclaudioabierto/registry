@@ -1,7 +1,7 @@
 kind: capability
 id: faang-dev
 name: FAANG Dev Pack
-description: GitHub CLI + Docker + Terraform + kubectl.
+description: GitHub CLI + Docker + Terraform + kubectl pack.
 aliases: [dev-pack]
 capabilities: [devtools]
 steps:

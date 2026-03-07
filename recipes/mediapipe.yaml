@@ -1,7 +1,7 @@
 kind: capability
 id: mediapipe
 name: MediaPipe
-description: Install MediaPipe in a local uv venv.
+description: Install MediaPipe for computer vision pipelines.
 aliases: [computer-vision, cv]
 capabilities: [computer-vision]
 steps:

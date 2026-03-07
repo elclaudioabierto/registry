@@ -1,7 +1,7 @@
 kind: capability
 id: media-transcription
 name: Media Transcription (ffmpeg + yt-dlp + faster-whisper)
-description: Download a YouTube video, extract audio, and run local transcription with faster-whisper.
+description: Download YouTube media and transcribe locally with faster-whisper.
 aliases: [video-transcribe, yt-transcribe]
 capabilities: [media, transcription]
 steps:

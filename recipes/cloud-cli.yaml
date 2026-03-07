@@ -1,7 +1,7 @@
 kind: capability
 id: cloud-cli
 name: Cloud CLIs
-description: Install Vercel CLI and AWS CLI.
+description: Vercel + AWS CLI with verification.
 aliases: [cloud]
 capabilities: [cloud, devops]
 steps:

@@ -1,7 +1,7 @@
 kind: capability
 id: nextjs-tailwind-ui
 name: Next.js + Tailwind UI
-description: Scaffold a Next.js (App Router + TS + Tailwind) app with a rich Tailwind UI-style starter layout.
+description: Scaffold a Next.js app with Tailwind UI-style layout.
 aliases: ["next-stack", "next-ui"]
 capabilities: ["frontend-app"]
 steps:

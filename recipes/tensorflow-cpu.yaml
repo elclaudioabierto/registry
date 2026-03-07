@@ -1,7 +1,7 @@
 kind: capability
 id: tensorflow-cpu
 name: TensorFlow (CPU)
-description: Install TensorFlow CPU in a local uv venv.
+description: TensorFlow CPU in a local uv venv.
 aliases: [tf-cpu]
 capabilities: [ml, tensorflow]
 steps:

@@ -1,7 +1,7 @@
 kind: capability
 id: openclaw
 name: OpenClaw
-description: Install the OpenClaw CLI and gateway tools.
+description: Install OpenClaw CLI.
 aliases: [openclaw]
 capabilities: [openclaw]
 steps:

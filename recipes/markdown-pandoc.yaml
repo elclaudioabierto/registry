@@ -1,7 +1,7 @@
 kind: capability
 id: markdown-pandoc
 name: Markdown + Pandoc
-description: Install Pandoc for robust markdown conversion.
+description: Install Pandoc for robust Markdown conversion.
 aliases: [markdown]
 capabilities: [markdown, docs]
 steps:

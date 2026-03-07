@@ -1,0 +1,25 @@
+kind: capability
+id: security-stack
+name: Security Stack
+description: Semgrep + Trivy + OWASP ZAP bundle.
+aliases: [security]
+capabilities: [security, devops]
+steps:
+  - title: Install Semgrep
+    type: install
+    package: semgrep
+    with:
+      manager: brew
+      name: semgrep
+  - title: Install Trivy
+    type: install
+    package: trivy
+    with:
+      manager: brew
+      name: trivy
+  - title: Install OWASP ZAP
+    type: install
+    package: owasp-zap
+    with:
+      manager: brew
+      name: --cask owasp-zap

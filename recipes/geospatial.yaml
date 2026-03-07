@@ -1,7 +1,7 @@
 kind: capability
 id: geospatial
 name: Geospatial Stack
-description: GDAL + QGIS + PostGIS + Python geospatial stack (GeoPandas, Shapely, Rasterio, PyProj, Folium).
+description: GDAL + QGIS + PostGIS + Python geospatial stack.
 aliases: [gis]
 capabilities: [geospatial]
 steps:

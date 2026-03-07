@@ -1,7 +1,7 @@
 kind: capability
 id: ai-cli
 name: AI CLIs
-description: Install Codex, Gemini, and Claude Code CLIs.
+description: Codex + Gemini + Claude Code CLIs.
 aliases: [ai]
 capabilities: [ai, devtools]
 steps:

@@ -1,0 +1,25 @@
+kind: capability
+id: mobile-dev
+name: Mobile Dev (Android)
+description: Android Studio + adb + Flutter bundle.
+aliases: [mobile]
+capabilities: [mobile, devtools]
+steps:
+  - title: Install Android Studio
+    type: install
+    package: android-studio
+    with:
+      manager: brew
+      name: --cask android-studio
+  - title: Install Android Platform Tools (adb)
+    type: install
+    package: android-platform-tools
+    with:
+      manager: brew
+      name: android-platform-tools
+  - title: Install Flutter
+    type: install
+    package: flutter
+    with:
+      manager: brew
+      name: flutter

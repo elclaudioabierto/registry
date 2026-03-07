@@ -1,7 +1,7 @@
 kind: capability
 id: google-workspace
 name: Google Workspace CLI
-description: Install Google Workspace CLI tools (gcloud + gsutil).
+description: Install Google Workspace CLI.
 aliases: [google]
 capabilities: [google, cloud]
 steps:

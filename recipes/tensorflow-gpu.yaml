@@ -1,7 +1,7 @@
 kind: capability
 id: tensorflow-gpu
 name: TensorFlow (GPU)
-description: Install TensorFlow GPU in a local uv venv (CUDA setup required).
+description: TensorFlow GPU in a local uv venv (CUDA required).
 aliases: [tf-gpu]
 capabilities: [ml, tensorflow, gpu]
 steps:

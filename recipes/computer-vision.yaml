@@ -1,7 +1,7 @@
 kind: capability
 id: computer-vision
 name: Computer Vision Bundle
-description: MediaPipe + OpenCV + Pillow + ffmpeg in a local uv venv.
+description: MediaPipe + OpenCV + Pillow + ffmpeg bundle.
 aliases: [cv]
 capabilities: [computer-vision]
 steps:

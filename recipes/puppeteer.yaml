@@ -1,6 +1,6 @@
 id: puppeteer
 name: Puppeteer
-description: Configure Puppeteer for browser automation tasks
+description: Use Puppeteer to drive Chrome/Chromium automation tasks.
 aliases: [pptr]
 capabilities: [browser, web-automation]
 package: puppeteer

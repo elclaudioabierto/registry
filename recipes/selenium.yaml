@@ -1,6 +1,6 @@
 id: selenium
 name: Selenium
-description: Configure Selenium WebDriver stack
+description: Use Selenium WebDriver for browser automation across drivers.
 aliases: [webdriver]
 capabilities: [browser, web-automation]
 package: selenium-webdriver

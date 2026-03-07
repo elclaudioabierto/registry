@@ -1,7 +1,7 @@
 kind: capability
 id: db-stack
 name: Databases Stack
-description: Install PostgreSQL, MongoDB, and DuckDB.
+description: Postgres + MongoDB + DuckDB bundle.
 aliases: [db]
 capabilities: [databases]
 steps:

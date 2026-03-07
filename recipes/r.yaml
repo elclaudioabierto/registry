@@ -1,7 +1,7 @@
 kind: package
 id: r
 name: R
-description: Install R and common packages for analysis on macOS.
+description: Install R plus tidyverse and lme4 for statistics workflows.
 aliases: ["r-lang", "rstats"]
 capabilities: ["data-science", "statistics"]
 package: r

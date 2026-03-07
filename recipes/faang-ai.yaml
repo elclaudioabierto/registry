@@ -1,7 +1,7 @@
 kind: capability
 id: faang-ai
 name: FAANG AI Pack
-description: Codex + Gemini + Claude Code CLIs.
+description: Codex + Gemini + Claude Code pack.
 aliases: [ai-pack]
 capabilities: [ai, devtools]
 steps:

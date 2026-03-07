@@ -1,7 +1,7 @@
 kind: package
 id: fast-agent
 name: fast-agent
-description: Install fast-agent via uv tool (fast-agent-mcp).
+description: Install fast-agent via uv tool for agent workflows.
 aliases: ["fastagent", "fast-agent.ai"]
 capabilities: ["agent-runtime", "ai-tools"]
 package: fast-agent-mcp

@@ -1,7 +1,7 @@
 kind: capability
 id: media-toolkit
 name: Media Toolkit
-description: ffmpeg + yt-dlp + faster-whisper in a local uv venv.
+description: ffmpeg + yt-dlp + faster-whisper bundle.
 aliases: [media, transcription]
 capabilities: [media, transcription]
 steps:

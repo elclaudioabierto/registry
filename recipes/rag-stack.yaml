@@ -1,7 +1,7 @@
 kind: capability
 id: rag-stack
 name: RAG Stack
-description: markitdown + chromadb + Next.js search UI with Litestream.
+description: markitdown + chromadb + Next.js search UI + litestream.
 aliases: [rag]
 capabilities: [rag, search]
 steps:

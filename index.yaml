@@ -2,6 +2,46 @@ version: "1"
 name: "AgentKit Official Registry"
 description: "Starter official recipes for browser automation"
 recipes:
+  - id: scraping-stack
+    kind: capability
+    name: Scraping Stack
+    description: End-to-end web scraping with Playwright + Python extraction.
+    aliases: [scrape-stack]
+    capabilities: [scraping, web-automation]
+    tags: [playwright, bs4, requests]
+    path: recipes/scraping-stack.yaml
+  - id: llm-ops
+    kind: capability
+    name: LLM Ops Toolkit
+    description: Evals + prompt testing + routing tools.
+    aliases: [llmops]
+    capabilities: [ai, evals]
+    tags: [litellm, ragas, promptfoo]
+    path: recipes/llm-ops.yaml
+  - id: mobile-dev
+    kind: capability
+    name: Mobile Dev (Android)
+    description: Android Studio + adb + Flutter.
+    aliases: [mobile]
+    capabilities: [mobile, devtools]
+    tags: [android, flutter]
+    path: recipes/mobile-dev.yaml
+  - id: security-stack
+    kind: capability
+    name: Security Stack
+    description: Semgrep + Trivy + OWASP ZAP.
+    aliases: [security]
+    capabilities: [security, devops]
+    tags: [semgrep, trivy, zap]
+    path: recipes/security-stack.yaml
+  - id: data-engineering
+    kind: capability
+    name: Data Engineering Stack
+    description: DuckDB + dbt + PyArrow + Polars.
+    aliases: [data-eng]
+    capabilities: [data]
+    tags: [duckdb, dbt, polars]
+    path: recipes/data-engineering.yaml
   - id: cloud-cli
     kind: capability
     name: Cloud CLIs

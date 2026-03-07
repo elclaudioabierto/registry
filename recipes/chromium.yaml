@@ -1,6 +1,6 @@
 id: chromium
 name: Chromium
-description: Install and run Chromium for deterministic automation
+description: Install Chromium for browser automation and headless testing.
 aliases: [chrome, browser-chromium]
 capabilities: [browser, web-automation]
 package: playwright

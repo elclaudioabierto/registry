@@ -1,6 +1,6 @@
 id: web-automation
 name: Web Automation Capability
-description: Baseline setup recipe for web automation workflows
+description: Install Chromium + Puppeteer with safety checks for web automation.
 aliases: [scrape]
 capabilities: [web-automation]
 tags: [capability]

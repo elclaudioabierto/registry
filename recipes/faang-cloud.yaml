@@ -1,7 +1,7 @@
 kind: capability
 id: faang-cloud
 name: FAANG Cloud Pack
-description: AWS + GCP + Azure CLIs.
+description: AWS + GCP + Azure CLI pack.
 aliases: [cloud-pack]
 capabilities: [cloud, devops]
 steps:
