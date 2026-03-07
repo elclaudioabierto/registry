@@ -17,6 +17,12 @@ steps:
     with:
       manager: brew
       name: yt-dlp
+  - title: Install uv
+    type: install
+    package: uv
+    with:
+      manager: brew
+      name: uv
   - title: Create .venv (uv)
     type: run
     command: uv venv .venv
