@@ -46,3 +46,6 @@ steps:
       alias ffprobequick='ffprobe -hide_banner -show_format -show_streams'
       alias ffmp4='ffmpeg -i'
       ALIAS"
+  - title: Reminder
+    type: note
+    description: Open a new terminal or run `source ~/.zshrc` to load the new aliases.
