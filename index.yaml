@@ -1,6 +1,6 @@
 version: "1"
 name: "AgentKit Official Registry"
-description: "Starter official recipes for browser automation"
+description: "Official AgentKit registry of capability bundles and recipes for agents."
 recipes:
   - id: scraping-stack
     kind: capability
