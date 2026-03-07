@@ -1,7 +1,7 @@
 kind: capability
 id: dev-aliases
 name: Dev Aliases (zsh)
-description: Useful zsh aliases for Node, Vercel, ports, and utilities.
+description: Useful zsh aliases for Node, Vercel, ports, utilities, and ffmpeg helpers.
 aliases: [aliases, zsh]
 capabilities: [devtools]
 steps:
