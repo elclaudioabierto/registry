@@ -16,7 +16,7 @@ steps:
     command: npm install -g pnpm
   - title: Scaffold Next.js app
     type: run
-    command: pnpm dlx create-next-app@latest agentkit-stack --ts --tailwind --app --eslint
+    command: pnpm dlx create-next-app@latest agentkit-stack --ts --tailwind --app --eslint --yes --no-react-compiler --use-pnpm
   - title: Install Prisma + Auth.js
     type: run
     command: |
