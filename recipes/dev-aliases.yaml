@@ -6,9 +6,9 @@ aliases: [aliases, zsh]
 capabilities: [devtools]
 steps:
   - title: Append aliases to ~/.zshrc
-    type: append
-    path: ~/.zshrc
-    content: |
+    type: run
+    command: |
+      bash -lc "cat >> ~/.zshrc <<'ALIAS'
       # AgentKit Dev Aliases
       # Node / package managers
       alias ni='npm install'
@@ -45,3 +45,4 @@ steps:
       # ffmpeg helpers
       alias ffprobequick='ffprobe -hide_banner -show_format -show_streams'
       alias ffmp4='ffmpeg -i'
+      ALIAS"
