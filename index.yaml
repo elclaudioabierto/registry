@@ -354,4 +354,12 @@ recipes:
     aliases: [scrape]
     capabilities: [web-automation]
     tags: [capability]
+  - id: ollama-qwen
+    kind: capability
+    name: Ollama + Qwen
+    description: Install Ollama and pull a laptop-friendly Qwen model.
+    aliases: [ollama, qwen]
+    capabilities: [ai]
+    tags: [ollama, qwen, local-llm]
+    path: recipes/ollama-qwen.yaml
 sources: []

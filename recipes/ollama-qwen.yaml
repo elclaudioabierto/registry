@@ -1,0 +1,26 @@
+kind: capability
+id: ollama-qwen
+name: Ollama + Qwen
+description: Install Ollama and pull a laptop-friendly Qwen model.
+aliases: [ollama, qwen]
+capabilities: [ai]
+# Notes:
+# - macOS: use brew (steps below)
+# - Linux: curl -fsSL https://ollama.com/install.sh | sh
+# - Windows: install from https://ollama.com/download (PowerShell: ollama pull qwen2.5:7b)
+steps:
+  - title: Install Ollama (macOS / brew)
+    type: install
+    package: ollama
+    with:
+      manager: brew
+      name: ollama
+  - title: Start Ollama
+    type: run
+    command: ollama serve &
+  - title: Pull Qwen (7B, good default for most laptops)
+    type: run
+    command: ollama pull qwen2.5:7b
+  - title: (Optional) Pull Qwen (3B, for 8GB RAM)
+    type: run
+    command: ollama pull qwen2.5:3b
