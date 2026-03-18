@@ -1,0 +1,1897 @@
+{
+  "updatedAt": 1773811054424,
+  "recipes": [
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/agent-graph-demo.yaml",
+      "recipe": {
+        "id": "agent-graph-demo",
+        "name": "Agent Graph Demo (Next.js + React Flow)",
+        "description": "Next.js app with React Flow and LangGraph/LangChain deps for an agent graph demo.",
+        "aliases": [
+          "agent-graph"
+        ],
+        "capabilities": [
+          "frontend-app",
+          "ai",
+          "visualization"
+        ],
+        "steps": [
+          {
+            "title": "Install Node.js",
+            "type": "install",
+            "package": "node",
+            "with": {
+              "manager": "brew",
+              "name": "node"
+            }
+          },
+          {
+            "title": "Install pnpm",
+            "type": "run",
+            "command": "npm install -g pnpm"
+          },
+          {
+            "title": "Scaffold Next.js app",
+            "type": "run",
+            "command": "pnpm dlx create-next-app@14.2.4 agent-graph-demo --ts --tailwind --app --eslint --use-pnpm --yes"
+          },
+          {
+            "title": "Install React Flow + LangGraph + LangChain",
+            "type": "run",
+            "command": "bash -lc \"cd agent-graph-demo && pnpm add reactflow @langchain/langgraph langchain\""
+          },
+          {
+            "title": "Add demo page",
+            "type": "run",
+            "command": "bash -lc \"cat > agent-graph-demo/app/page.tsx <<'PAGE'\n'use client';\nimport React from 'react';\nimport ReactFlow, { Background, Controls, MiniMap } from 'reactflow';\nimport 'reactflow/dist/style.css';\n\nconst nodes = [\n  { id: '1', position: { x: 0, y: 0 }, data: { label: 'Agent' } },\n  { id: '2', position: { x: 200, y: 100 }, data: { label: 'Tool' } },\n  { id: '3', position: { x: 0, y: 200 }, data: { label: 'Memory' } }\n];\nconst edges = [\n  { id: 'e1-2', source: '1', target: '2' },\n  { id: 'e1-3', source: '1', target: '3' }\n];\n\nexport default function Home() {\n  return (\n    <main className=\"min-h-screen bg-white text-zinc-900\">\n      <div className=\"mx-auto max-w-5xl px-6 py-10\">\n        <h1 className=\"text-4xl font-semibold\">Agent Graph Demo</h1>\n        <p className=\"mt-2 text-zinc-600\">React Flow + LangGraph/LangChain dependencies ready.</p>\n        <div className=\"mt-6 h-[520px] rounded-xl border border-zinc-200\">\n          <ReactFlow nodes={nodes} edges={edges} fitView>\n            <MiniMap />\n            <Controls />\n            <Background />\n          </ReactFlow>\n        </div>\n      </div>\n    </main>\n  );\n}\nPAGE\"\n"
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/react-flow.yaml",
+      "recipe": {
+        "id": "react-flow",
+        "name": "React Flow",
+        "description": "Scaffold a minimal React + TypeScript app with React Flow.",
+        "aliases": [
+          "reactflow"
+        ],
+        "capabilities": [
+          "frontend-app",
+          "visualization"
+        ],
+        "steps": [
+          {
+            "title": "Scaffold Vite React + TS app",
+            "type": "run",
+            "command": "npm create vite@latest reactflow-demo -- --template react-ts"
+          },
+          {
+            "title": "Install React Flow",
+            "type": "run",
+            "command": "cd reactflow-demo && npm install reactflow"
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/langchain.yaml",
+      "recipe": {
+        "id": "langchain",
+        "name": "LangChain (JS)",
+        "description": "Scaffold a minimal Node project with LangChain.",
+        "aliases": [
+          "lc"
+        ],
+        "capabilities": [
+          "ai"
+        ],
+        "steps": [
+          {
+            "title": "Init project",
+            "type": "run",
+            "command": "mkdir langchain-demo && cd langchain-demo && npm init -y"
+          },
+          {
+            "title": "Install LangChain",
+            "type": "run",
+            "command": "cd langchain-demo && npm install langchain"
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/langgraph.yaml",
+      "recipe": {
+        "id": "langgraph",
+        "name": "LangGraph JS",
+        "description": "Scaffold a minimal Node project with LangGraph.js.",
+        "aliases": [
+          "langgraphjs"
+        ],
+        "capabilities": [
+          "ai"
+        ],
+        "steps": [
+          {
+            "title": "Init project",
+            "type": "run",
+            "command": "mkdir langgraph-demo && cd langgraph-demo && npm init -y"
+          },
+          {
+            "title": "Install LangGraph",
+            "type": "run",
+            "command": "cd langgraph-demo && npm install @langchain/langgraph"
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/nextjs-postgres-auth.yaml",
+      "recipe": {
+        "id": "nextjs-postgres-auth",
+        "name": "Next.js + Postgres + Auth.js",
+        "description": "Full Next.js app with Tailwind, Prisma (Postgres), Auth.js, and AgentKit hello world.",
+        "aliases": [
+          "next-postgres",
+          "next-auth"
+        ],
+        "capabilities": [
+          "frontend-app",
+          "backend",
+          "auth"
+        ],
+        "steps": [
+          {
+            "title": "Install Node.js",
+            "type": "install",
+            "package": "node",
+            "with": {
+              "manager": "brew",
+              "name": "node"
+            }
+          },
+          {
+            "title": "Install pnpm",
+            "type": "run",
+            "command": "npm install -g pnpm"
+          },
+          {
+            "title": "Scaffold Next.js app",
+            "type": "run",
+            "command": "pnpm dlx create-next-app@14.2.4 agentkit-stack --ts --tailwind --app --eslint --use-pnpm --yes"
+          },
+          {
+            "title": "Install Prisma + Auth.js",
+            "type": "run",
+            "command": "bash -lc \"cd agentkit-stack && pnpm add prisma @prisma/client next-auth\"\n"
+          },
+          {
+            "title": "Initialize Prisma",
+            "type": "run",
+            "command": "bash -lc \"cd agentkit-stack && npx prisma init\"\n"
+          },
+          {
+            "title": "Write Prisma schema",
+            "type": "run",
+            "command": "bash -lc \"cat > agentkit-stack/prisma/schema.prisma <<'PRISMA'\ndatasource db {\n  provider = \\\"postgresql\\\"\n  url      = env(\\\"DATABASE_URL\\\")\n}\n\ngenerator client {\n  provider = \\\"prisma-client-js\\\"\n}\n\nmodel User {\n  id        String   @id @default(cuid())\n  email     String   @unique\n  name      String?\n  createdAt DateTime @default(now())\n}\nPRISMA\"\n"
+          },
+          {
+            "title": "Configure Auth.js (basic credentials)",
+            "type": "run",
+            "command": "bash -lc \"cat > agentkit-stack/app/api/auth/[...nextauth]/route.ts <<'AUTH'\nimport NextAuth from \\\"next-auth\\\";\nimport Credentials from \\\"next-auth/providers/credentials\\\";\n\nconst handler = NextAuth({\n  providers: [\n    Credentials({\n      name: \\\"Credentials\\\",\n      credentials: { email: { label: \\\"Email\\\", type: \\\"email\\\" } },\n      async authorize(credentials) {\n        if (!credentials?.email) return null;\n        return { id: credentials.email, email: credentials.email };\n      }\n    })\n  ],\n  session: { strategy: \\\"jwt\\\" }\n});\n\nexport { handler as GET, handler as POST };\nAUTH\"\n"
+          },
+          {
+            "title": "Update homepage",
+            "type": "run",
+            "command": "bash -lc \"cat > agentkit-stack/app/page.tsx <<'PAGE'\nexport default function Home() {\n  return (\n    <main className=\\\"min-h-screen bg-white text-zinc-900\\\">\n      <div className=\\\"mx-auto max-w-3xl px-6 py-16\\\">\n        <h1 className=\\\"text-4xl font-semibold\\\">AgentKit Stack</h1>\n        <p className=\\\"mt-4 text-zinc-600\\\">Next.js + Postgres + Auth.js scaffolded by AgentKit.</p>\n        <div className=\\\"mt-6 rounded-xl border border-zinc-200 bg-zinc-50 p-4\\\">\n          <p className=\\\"text-sm\\\">Set <code className=\\\"font-mono\\\">DATABASE_URL</code> then run:</p>\n          <pre className=\\\"mt-2 text-sm\\\">npx prisma migrate dev</pre>\n        </div>\n      </div>\n    </main>\n  );\n}\nPAGE\"\n"
+          },
+          {
+            "title": "Note",
+            "type": "note",
+            "description": "Set DATABASE_URL in agentkit-stack/.env and run `npx prisma migrate dev` to create the database."
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/backend-api.yaml",
+      "recipe": {
+        "id": "backend-api",
+        "name": "Backend API Stack",
+        "description": "FastAPI + Uvicorn + HTTPie in a local uv venv.",
+        "aliases": [
+          "api-backend"
+        ],
+        "capabilities": [
+          "api",
+          "backend"
+        ],
+        "steps": [
+          {
+            "title": "Install uv",
+            "type": "install",
+            "package": "uv",
+            "with": {
+              "manager": "brew",
+              "name": "uv"
+            }
+          },
+          {
+            "title": "Create .venv (uv)",
+            "type": "run",
+            "command": "uv venv .venv"
+          },
+          {
+            "title": "Install FastAPI stack",
+            "type": "run",
+            "command": "bash -lc \"source .venv/bin/activate && uv pip install fastapi uvicorn httpie\""
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/data-science.yaml",
+      "recipe": {
+        "id": "data-science",
+        "name": "Data Science Stack",
+        "description": "Jupyter + NumPy + pandas + matplotlib + seaborn.",
+        "aliases": [
+          "datasci"
+        ],
+        "capabilities": [
+          "data-science"
+        ],
+        "steps": [
+          {
+            "title": "Install uv",
+            "type": "install",
+            "package": "uv",
+            "with": {
+              "manager": "brew",
+              "name": "uv"
+            }
+          },
+          {
+            "title": "Create .venv (uv)",
+            "type": "run",
+            "command": "uv venv .venv"
+          },
+          {
+            "title": "Install data science stack",
+            "type": "run",
+            "command": "bash -lc \"source .venv/bin/activate && uv pip install jupyter numpy pandas matplotlib seaborn\""
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/container-dev.yaml",
+      "recipe": {
+        "id": "container-dev",
+        "name": "Container Dev Stack",
+        "description": "Docker + kubectl + Helm + k9s.",
+        "aliases": [
+          "containers"
+        ],
+        "capabilities": [
+          "devops"
+        ],
+        "steps": [
+          {
+            "title": "Install Docker",
+            "type": "install",
+            "package": "docker",
+            "with": {
+              "manager": "brew",
+              "name": "--cask docker"
+            }
+          },
+          {
+            "title": "Install kubectl",
+            "type": "install",
+            "package": "kubectl",
+            "with": {
+              "manager": "brew",
+              "name": "kubectl"
+            }
+          },
+          {
+            "title": "Install Helm",
+            "type": "install",
+            "package": "helm",
+            "with": {
+              "manager": "brew",
+              "name": "helm"
+            }
+          },
+          {
+            "title": "Install k9s",
+            "type": "install",
+            "package": "k9s",
+            "with": {
+              "manager": "brew",
+              "name": "k9s"
+            }
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/observability.yaml",
+      "recipe": {
+        "id": "observability",
+        "name": "Observability Stack",
+        "description": "Grafana + Prometheus + Loki for local observability.",
+        "aliases": [
+          "o11y"
+        ],
+        "capabilities": [
+          "observability",
+          "devops"
+        ],
+        "steps": [
+          {
+            "title": "Install Grafana",
+            "type": "install",
+            "package": "grafana",
+            "with": {
+              "manager": "brew",
+              "name": "grafana"
+            }
+          },
+          {
+            "title": "Install Prometheus",
+            "type": "install",
+            "package": "prometheus",
+            "with": {
+              "manager": "brew",
+              "name": "prometheus"
+            }
+          },
+          {
+            "title": "Install Loki",
+            "type": "install",
+            "package": "loki",
+            "with": {
+              "manager": "brew",
+              "name": "loki"
+            }
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/git-tools.yaml",
+      "recipe": {
+        "id": "git-tools",
+        "name": "Git Tools",
+        "description": "GitHub CLI + git-lfs + lazygit.",
+        "aliases": [
+          "git"
+        ],
+        "capabilities": [
+          "devtools"
+        ],
+        "steps": [
+          {
+            "title": "Install GitHub CLI",
+            "type": "install",
+            "package": "gh",
+            "with": {
+              "manager": "brew",
+              "name": "gh"
+            }
+          },
+          {
+            "title": "Install git-lfs",
+            "type": "install",
+            "package": "git-lfs",
+            "with": {
+              "manager": "brew",
+              "name": "git-lfs"
+            }
+          },
+          {
+            "title": "Install lazygit",
+            "type": "install",
+            "package": "lazygit",
+            "with": {
+              "manager": "brew",
+              "name": "lazygit"
+            }
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/scraping-stack.yaml",
+      "recipe": {
+        "id": "scraping-stack",
+        "name": "Scraping Stack",
+        "description": "Playwright + BeautifulSoup + readability + requests.",
+        "aliases": [
+          "scrape-stack"
+        ],
+        "capabilities": [
+          "scraping",
+          "web-automation"
+        ],
+        "steps": [
+          {
+            "title": "Install Playwright",
+            "type": "install",
+            "package": "playwright",
+            "with": {
+              "manager": "npm",
+              "name": "playwright"
+            }
+          },
+          {
+            "title": "Install Playwright browsers",
+            "type": "run",
+            "command": "npx playwright install"
+          },
+          {
+            "title": "Install uv",
+            "type": "install",
+            "package": "uv",
+            "with": {
+              "manager": "brew",
+              "name": "uv"
+            }
+          },
+          {
+            "title": "Create .venv (uv)",
+            "type": "run",
+            "command": "uv venv .venv"
+          },
+          {
+            "title": "Install Python scraping tools",
+            "type": "run",
+            "command": "bash -lc \"source .venv/bin/activate && uv pip install beautifulsoup4 readability-lxml requests\""
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/llm-ops.yaml",
+      "recipe": {
+        "id": "llm-ops",
+        "name": "LLM Ops Toolkit",
+        "description": "Litellm + ragas + promptfoo tooling.",
+        "aliases": [
+          "llmops"
+        ],
+        "capabilities": [
+          "ai",
+          "evals"
+        ],
+        "steps": [
+          {
+            "title": "Install uv",
+            "type": "install",
+            "package": "uv",
+            "with": {
+              "manager": "brew",
+              "name": "uv"
+            }
+          },
+          {
+            "title": "Create .venv (uv)",
+            "type": "run",
+            "command": "uv venv .venv"
+          },
+          {
+            "title": "Install LLM tooling",
+            "type": "run",
+            "command": "bash -lc \"source .venv/bin/activate && uv pip install litellm ragas\""
+          },
+          {
+            "title": "Install Promptfoo",
+            "type": "install",
+            "package": "promptfoo",
+            "with": {
+              "manager": "npm",
+              "name": "promptfoo"
+            }
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/mobile-dev.yaml",
+      "recipe": {
+        "id": "mobile-dev",
+        "name": "Mobile Dev (Android)",
+        "description": "Android Studio + adb + Flutter bundle.",
+        "aliases": [
+          "mobile"
+        ],
+        "capabilities": [
+          "mobile",
+          "devtools"
+        ],
+        "steps": [
+          {
+            "title": "Install Android Studio",
+            "type": "install",
+            "package": "android-studio",
+            "with": {
+              "manager": "brew",
+              "name": "--cask android-studio"
+            }
+          },
+          {
+            "title": "Install Android Platform Tools (adb)",
+            "type": "install",
+            "package": "android-platform-tools",
+            "with": {
+              "manager": "brew",
+              "name": "android-platform-tools"
+            }
+          },
+          {
+            "title": "Install Flutter",
+            "type": "install",
+            "package": "flutter",
+            "with": {
+              "manager": "brew",
+              "name": "flutter"
+            }
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/security-stack.yaml",
+      "recipe": {
+        "id": "security-stack",
+        "name": "Security Stack",
+        "description": "Semgrep + Trivy + OWASP ZAP bundle.",
+        "aliases": [
+          "security"
+        ],
+        "capabilities": [
+          "security",
+          "devops"
+        ],
+        "steps": [
+          {
+            "title": "Install Semgrep",
+            "type": "install",
+            "package": "semgrep",
+            "with": {
+              "manager": "brew",
+              "name": "semgrep"
+            }
+          },
+          {
+            "title": "Install Trivy",
+            "type": "install",
+            "package": "trivy",
+            "with": {
+              "manager": "brew",
+              "name": "trivy"
+            }
+          },
+          {
+            "title": "Install OWASP ZAP",
+            "type": "install",
+            "package": "owasp-zap",
+            "with": {
+              "manager": "brew",
+              "name": "--cask owasp-zap"
+            }
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/data-engineering.yaml",
+      "recipe": {
+        "id": "data-engineering",
+        "name": "Data Engineering Stack",
+        "description": "DuckDB + dbt + PyArrow + Polars bundle.",
+        "aliases": [
+          "data-eng"
+        ],
+        "capabilities": [
+          "data"
+        ],
+        "steps": [
+          {
+            "title": "Install DuckDB",
+            "type": "install",
+            "package": "duckdb",
+            "with": {
+              "manager": "brew",
+              "name": "duckdb"
+            }
+          },
+          {
+            "title": "Install uv",
+            "type": "install",
+            "package": "uv",
+            "with": {
+              "manager": "brew",
+              "name": "uv"
+            }
+          },
+          {
+            "title": "Create .venv (uv)",
+            "type": "run",
+            "command": "uv venv .venv"
+          },
+          {
+            "title": "Install Python data tooling",
+            "type": "run",
+            "command": "bash -lc \"source .venv/bin/activate && uv pip install dbt-core pyarrow polars\""
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/cloud-cli.yaml",
+      "recipe": {
+        "id": "cloud-cli",
+        "name": "Cloud CLIs",
+        "description": "Vercel + AWS CLI with verification.",
+        "aliases": [
+          "cloud"
+        ],
+        "capabilities": [
+          "cloud",
+          "devops"
+        ],
+        "steps": [
+          {
+            "title": "Install Vercel CLI",
+            "type": "run",
+            "command": "npm install -g vercel"
+          },
+          {
+            "title": "Install AWS CLI v2 (official installer)",
+            "type": "run",
+            "command": "curl \"https://awscli.amazonaws.com/AWSCLIV2.pkg\" -o \"AWSCLIV2.pkg\"\nsudo installer -pkg AWSCLIV2.pkg -target /\n"
+          },
+          {
+            "title": "Verify Vercel CLI",
+            "type": "run",
+            "command": "vercel --version"
+          },
+          {
+            "title": "Verify AWS CLI",
+            "type": "run",
+            "command": "aws --version"
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/ai-cli.yaml",
+      "recipe": {
+        "id": "ai-cli",
+        "name": "AI CLIs",
+        "description": "Codex + Gemini + Claude Code CLIs.",
+        "aliases": [
+          "ai"
+        ],
+        "capabilities": [
+          "ai",
+          "devtools"
+        ],
+        "steps": [
+          {
+            "title": "Install Codex CLI",
+            "type": "run",
+            "command": "npm install -g @openai/codex"
+          },
+          {
+            "title": "Install Gemini CLI",
+            "type": "run",
+            "command": "npm install -g @google/gemini-cli"
+          },
+          {
+            "title": "Install Claude Code",
+            "type": "run",
+            "command": "npm install -g @anthropic-ai/claude-code"
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/openclaw.yaml",
+      "recipe": {
+        "id": "openclaw",
+        "name": "OpenClaw",
+        "description": "Install OpenClaw CLI.",
+        "aliases": [
+          "openclaw"
+        ],
+        "capabilities": [
+          "openclaw"
+        ],
+        "steps": [
+          {
+            "title": "Install OpenClaw",
+            "type": "install",
+            "package": "openclaw",
+            "with": {
+              "manager": "npm",
+              "name": "openclaw"
+            }
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/google-workspace.yaml",
+      "recipe": {
+        "id": "google-workspace",
+        "name": "Google Workspace CLI",
+        "description": "Install Google Workspace CLI.",
+        "aliases": [
+          "google"
+        ],
+        "capabilities": [
+          "google",
+          "cloud"
+        ],
+        "steps": [
+          {
+            "title": "Install Google Workspace CLI",
+            "type": "run",
+            "command": "npm install -g @googleworkspace/cli"
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/faang-cloud.yaml",
+      "recipe": {
+        "id": "faang-cloud",
+        "name": "FAANG Cloud Pack",
+        "description": "AWS + GCP + Azure CLI pack.",
+        "aliases": [
+          "cloud-pack"
+        ],
+        "capabilities": [
+          "cloud",
+          "devops"
+        ],
+        "steps": [
+          {
+            "title": "Install AWS CLI",
+            "type": "install",
+            "package": "awscli",
+            "with": {
+              "manager": "brew",
+              "name": "awscli"
+            }
+          },
+          {
+            "title": "Install Google Cloud SDK",
+            "type": "install",
+            "package": "google-cloud-sdk",
+            "with": {
+              "manager": "brew",
+              "name": "google-cloud-sdk"
+            }
+          },
+          {
+            "title": "Install Azure CLI",
+            "type": "install",
+            "package": "azure-cli",
+            "with": {
+              "manager": "brew",
+              "name": "azure-cli"
+            }
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/faang-ai.yaml",
+      "recipe": {
+        "id": "faang-ai",
+        "name": "FAANG AI Pack",
+        "description": "Codex + Gemini + Claude Code pack.",
+        "aliases": [
+          "ai-pack"
+        ],
+        "capabilities": [
+          "ai",
+          "devtools"
+        ],
+        "steps": [
+          {
+            "title": "Install Codex CLI",
+            "type": "run",
+            "command": "npm install -g @openai/codex"
+          },
+          {
+            "title": "Install Gemini CLI",
+            "type": "run",
+            "command": "npm install -g @google/gemini-cli"
+          },
+          {
+            "title": "Install Claude Code",
+            "type": "run",
+            "command": "npm install -g @anthropic-ai/claude-code"
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/faang-dev.yaml",
+      "recipe": {
+        "id": "faang-dev",
+        "name": "FAANG Dev Pack",
+        "description": "GitHub CLI + Docker + Terraform + kubectl pack.",
+        "aliases": [
+          "dev-pack"
+        ],
+        "capabilities": [
+          "devtools"
+        ],
+        "steps": [
+          {
+            "title": "Install GitHub CLI",
+            "type": "install",
+            "package": "gh",
+            "with": {
+              "manager": "brew",
+              "name": "gh"
+            }
+          },
+          {
+            "title": "Install Docker",
+            "type": "install",
+            "package": "docker",
+            "with": {
+              "manager": "brew",
+              "name": "--cask docker"
+            }
+          },
+          {
+            "title": "Install Terraform",
+            "type": "install",
+            "package": "terraform",
+            "with": {
+              "manager": "brew",
+              "name": "terraform"
+            }
+          },
+          {
+            "title": "Install kubectl",
+            "type": "install",
+            "package": "kubectl",
+            "with": {
+              "manager": "brew",
+              "name": "kubectl"
+            }
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/db-stack.yaml",
+      "recipe": {
+        "id": "db-stack",
+        "name": "Databases Stack",
+        "description": "Postgres + MongoDB + DuckDB bundle.",
+        "aliases": [
+          "db"
+        ],
+        "capabilities": [
+          "databases"
+        ],
+        "steps": [
+          {
+            "title": "Install PostgreSQL",
+            "type": "install",
+            "package": "postgresql",
+            "with": {
+              "manager": "brew",
+              "name": "postgresql"
+            }
+          },
+          {
+            "title": "Install MongoDB Community",
+            "type": "install",
+            "package": "mongodb-community@7.0",
+            "with": {
+              "manager": "brew",
+              "name": "mongodb-community@7.0"
+            }
+          },
+          {
+            "title": "Install DuckDB",
+            "type": "install",
+            "package": "duckdb",
+            "with": {
+              "manager": "brew",
+              "name": "duckdb"
+            }
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/geospatial.yaml",
+      "recipe": {
+        "id": "geospatial",
+        "name": "Geospatial Stack",
+        "description": "GDAL + QGIS + PostGIS + Python geospatial stack.",
+        "aliases": [
+          "gis"
+        ],
+        "capabilities": [
+          "geospatial"
+        ],
+        "steps": [
+          {
+            "title": "Install GDAL",
+            "type": "install",
+            "package": "gdal",
+            "with": {
+              "manager": "brew",
+              "name": "gdal"
+            }
+          },
+          {
+            "title": "Install QGIS",
+            "type": "install",
+            "package": "qgis",
+            "with": {
+              "manager": "brew",
+              "name": "--cask qgis"
+            }
+          },
+          {
+            "title": "Install PostGIS",
+            "type": "install",
+            "package": "postgis",
+            "with": {
+              "manager": "brew",
+              "name": "postgis"
+            }
+          },
+          {
+            "title": "Install uv",
+            "type": "install",
+            "package": "uv",
+            "with": {
+              "manager": "brew",
+              "name": "uv"
+            }
+          },
+          {
+            "title": "Create .venv (uv)",
+            "type": "run",
+            "command": "uv venv .venv"
+          },
+          {
+            "title": "Install Python geospatial stack",
+            "type": "run",
+            "command": "bash -lc \"source .venv/bin/activate && uv pip install geopandas shapely rasterio pyproj folium\""
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/dev-aliases.yaml",
+      "recipe": {
+        "id": "dev-aliases",
+        "name": "Dev Aliases (zsh)",
+        "description": "Useful zsh aliases for Node, Vercel, ports, utilities, and ffmpeg helpers.",
+        "aliases": [
+          "aliases",
+          "zsh"
+        ],
+        "capabilities": [
+          "devtools"
+        ],
+        "steps": [
+          {
+            "title": "Append aliases to ~/.zshrc",
+            "type": "run",
+            "command": "bash -lc \"cat >> ~/.zshrc <<'ALIAS'\n# AgentKit Dev Aliases\n# Node / package managers\nalias ni='npm install'\nalias nid='npm install --save-dev'\nalias nr='npm run'\nalias nrd='npm run dev'\nalias nrb='npm run build'\nalias nrs='npm run start'\n\n# Vercel\nalias vp='npx vercel --prod --yes'\nalias vd='npx vercel'\nalias vl='vercel logs'\n\n# Local dev helpers\nalias psg='ps aux | grep -i'\nalias ports='lsof -i -P | grep LISTEN'\nalias kill3000='lsof -ti:3000 | xargs kill -9'\nalias kill3001='lsof -ti:3001 | xargs kill -9'\nalias kill5000='lsof -ti:5000 | xargs kill -9'\n\n# Quick project serving\nalias serve='python3 -m http.server'\n\n# Common directories (edit to match your machine)\nalias dev='cd ~/dev'\nalias projects='cd ~/projects'\nalias oc='cd ~/.openclaw/workspace/projects'\n\n# Utilities\nalias zshreload='source ~/.zshrc'\nalias myip='curl ifconfig.me'\nalias flushdns='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'\n\nALIAS\"\n"
+          },
+          {
+            "title": "Reminder",
+            "type": "note",
+            "description": "Open a new terminal or run `source ~/.zshrc` to load the new aliases."
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/computer-vision.yaml",
+      "recipe": {
+        "id": "computer-vision",
+        "name": "Computer Vision Bundle",
+        "description": "MediaPipe + OpenCV + Pillow + ffmpeg bundle.",
+        "aliases": [
+          "cv"
+        ],
+        "capabilities": [
+          "computer-vision"
+        ],
+        "steps": [
+          {
+            "title": "Install uv",
+            "type": "install",
+            "package": "uv",
+            "with": {
+              "manager": "brew",
+              "name": "uv"
+            }
+          },
+          {
+            "title": "Install ffmpeg",
+            "type": "install",
+            "package": "ffmpeg",
+            "with": {
+              "manager": "brew",
+              "name": "ffmpeg"
+            }
+          },
+          {
+            "title": "Create .venv (uv)",
+            "type": "run",
+            "command": "uv venv .venv"
+          },
+          {
+            "title": "Install CV Python packages",
+            "type": "run",
+            "command": "bash -lc \"source .venv/bin/activate && uv pip install mediapipe opencv-python pillow\""
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/redaction.yaml",
+      "recipe": {
+        "id": "redaction",
+        "name": "Redaction Bundle",
+        "description": "Presidio + spaCy + PDF tools for redaction.",
+        "aliases": [
+          "pii-redaction",
+          "presidio"
+        ],
+        "capabilities": [
+          "redaction",
+          "privacy"
+        ],
+        "steps": [
+          {
+            "title": "Install uv",
+            "type": "install",
+            "package": "uv",
+            "with": {
+              "manager": "brew",
+              "name": "uv"
+            }
+          },
+          {
+            "title": "Create .venv (uv)",
+            "type": "run",
+            "command": "uv venv .venv"
+          },
+          {
+            "title": "Install Presidio + spaCy",
+            "type": "run",
+            "command": "bash -lc \"source .venv/bin/activate && uv pip install presidio-analyzer presidio-anonymizer spacy pikepdf\""
+          },
+          {
+            "title": "Download spaCy model",
+            "type": "run",
+            "command": "bash -lc \"source .venv/bin/activate && python -m spacy download en_core_web_lg\""
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/media-toolkit.yaml",
+      "recipe": {
+        "id": "media-toolkit",
+        "name": "Media Toolkit",
+        "description": "ffmpeg + yt-dlp + faster-whisper bundle.",
+        "aliases": [
+          "media",
+          "transcription"
+        ],
+        "capabilities": [
+          "media",
+          "transcription"
+        ],
+        "steps": [
+          {
+            "title": "Install uv",
+            "type": "install",
+            "package": "uv",
+            "with": {
+              "manager": "brew",
+              "name": "uv"
+            }
+          },
+          {
+            "title": "Install ffmpeg",
+            "type": "install",
+            "package": "ffmpeg",
+            "with": {
+              "manager": "brew",
+              "name": "ffmpeg"
+            }
+          },
+          {
+            "title": "Install yt-dlp",
+            "type": "install",
+            "package": "yt-dlp",
+            "with": {
+              "manager": "brew",
+              "name": "yt-dlp"
+            }
+          },
+          {
+            "title": "Create .venv (uv)",
+            "type": "run",
+            "command": "uv venv .venv"
+          },
+          {
+            "title": "Install faster-whisper",
+            "type": "run",
+            "command": "bash -lc \"source .venv/bin/activate && uv pip install faster-whisper\""
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/frontend-dev.yaml",
+      "recipe": {
+        "id": "frontend-dev",
+        "name": "Frontend Dev Bundle",
+        "description": "Node + pnpm + eslint + prettier for frontend dev.",
+        "aliases": [
+          "frontend"
+        ],
+        "capabilities": [
+          "frontend-app",
+          "devtools"
+        ],
+        "steps": [
+          {
+            "title": "Install Node.js",
+            "type": "install",
+            "package": "node",
+            "with": {
+              "manager": "brew",
+              "name": "node"
+            }
+          },
+          {
+            "title": "Install pnpm",
+            "type": "run",
+            "command": "npm install -g pnpm"
+          },
+          {
+            "title": "Install eslint + prettier",
+            "type": "run",
+            "command": "npm install -g eslint prettier"
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/rag-stack.yaml",
+      "recipe": {
+        "id": "rag-stack",
+        "name": "RAG Stack",
+        "description": "markitdown + chromadb + Next.js search UI (optionally Streamlit).",
+        "aliases": [
+          "rag"
+        ],
+        "capabilities": [
+          "rag",
+          "search"
+        ],
+        "steps": [
+          {
+            "title": "Install uv",
+            "type": "install",
+            "package": "uv",
+            "with": {
+              "manager": "brew",
+              "name": "uv"
+            }
+          },
+          {
+            "title": "Install Node.js",
+            "type": "install",
+            "package": "node",
+            "with": {
+              "manager": "brew",
+              "name": "node"
+            }
+          },
+          {
+            "title": "Install pnpm",
+            "type": "run",
+            "command": "npm install -g pnpm"
+          },
+          {
+            "title": "Create .venv (uv)",
+            "type": "run",
+            "command": "uv venv .venv"
+          },
+          {
+            "title": "Install markitdown + chromadb",
+            "type": "run",
+            "command": "bash -lc \"source .venv/bin/activate && uv pip install markitdown chromadb\""
+          },
+          {
+            "title": "Install Streamlit (optional UI)",
+            "type": "run",
+            "command": "bash -lc \"source .venv/bin/activate && uv pip install streamlit\""
+          },
+          {
+            "title": "Scaffold Next.js search UI",
+            "type": "run",
+            "command": "pnpm dlx create-next-app@latest rag-search-ui --ts --tailwind --app --eslint"
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/media-transcription.yaml",
+      "recipe": {
+        "id": "media-transcription",
+        "name": "Media Transcription (ffmpeg + yt-dlp + faster-whisper)",
+        "description": "Download YouTube media and transcribe locally with faster-whisper.",
+        "aliases": [
+          "video-transcribe",
+          "yt-transcribe"
+        ],
+        "capabilities": [
+          "media",
+          "transcription"
+        ],
+        "steps": [
+          {
+            "title": "Install ffmpeg",
+            "type": "install",
+            "package": "ffmpeg",
+            "with": {
+              "manager": "brew",
+              "name": "ffmpeg"
+            }
+          },
+          {
+            "title": "Install yt-dlp",
+            "type": "install",
+            "package": "yt-dlp",
+            "with": {
+              "manager": "brew",
+              "name": "yt-dlp"
+            }
+          },
+          {
+            "title": "Install uv",
+            "type": "install",
+            "package": "uv",
+            "with": {
+              "manager": "brew",
+              "name": "uv"
+            }
+          },
+          {
+            "title": "Create .venv (uv)",
+            "type": "run",
+            "command": "uv venv .venv"
+          },
+          {
+            "title": "Install Python packages (uv)",
+            "type": "run",
+            "command": "bash -lc \"source .venv/bin/activate && uv pip install faster-whisper spacy\""
+          },
+          {
+            "title": "Download test video",
+            "type": "run",
+            "command": "yt-dlp -o \"myvideo.%(ext)s\" https://www.youtube.com/watch?v=t9fM-cTVyTg"
+          },
+          {
+            "title": "Transcribe with faster-whisper",
+            "type": "run",
+            "command": "bash -lc \"source .venv/bin/activate && python -c \\\"from faster_whisper import WhisperModel; model=WhisperModel('small'); segments,_=model.transcribe('myvideo.mp4'); [print(f'[{s.start:.2f}-{s.end:.2f}] {s.text}') for s in segments]\\\"\""
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/fast-agent.yaml",
+      "recipe": {
+        "id": "fast-agent",
+        "name": "fast-agent",
+        "description": "Install fast-agent via uv tool for agent workflows.",
+        "aliases": [
+          "fastagent",
+          "fast-agent.ai"
+        ],
+        "capabilities": [
+          "agent-runtime",
+          "ai-tools"
+        ],
+        "package": "fast-agent-mcp",
+        "steps": [
+          {
+            "title": "Install uv",
+            "type": "install",
+            "package": "uv",
+            "with": {
+              "manager": "brew",
+              "name": "uv"
+            }
+          },
+          {
+            "title": "Install fast-agent (uv tool)",
+            "type": "run",
+            "command": "uv tool install fast-agent-mcp"
+          },
+          {
+            "title": "Verify install",
+            "type": "run",
+            "command": "fast-agent --help"
+          },
+          {
+            "title": "Reference",
+            "type": "open",
+            "url": "https://fast-agent.ai/"
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/tensorflow-cpu.yaml",
+      "recipe": {
+        "id": "tensorflow-cpu",
+        "name": "TensorFlow (CPU)",
+        "description": "TensorFlow CPU in a local uv venv.",
+        "aliases": [
+          "tf-cpu"
+        ],
+        "capabilities": [
+          "ml",
+          "tensorflow"
+        ],
+        "steps": [
+          {
+            "title": "Install uv",
+            "type": "install",
+            "package": "uv",
+            "with": {
+              "manager": "brew",
+              "name": "uv"
+            }
+          },
+          {
+            "title": "Create .venv (uv)",
+            "type": "run",
+            "command": "uv venv .venv"
+          },
+          {
+            "title": "Install TensorFlow (CPU)",
+            "type": "run",
+            "command": "bash -lc \"source .venv/bin/activate && uv pip install tensorflow\""
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/tensorflow-gpu.yaml",
+      "recipe": {
+        "id": "tensorflow-gpu",
+        "name": "TensorFlow (GPU)",
+        "description": "TensorFlow GPU in a local uv venv (CUDA required).",
+        "aliases": [
+          "tf-gpu"
+        ],
+        "capabilities": [
+          "ml",
+          "tensorflow",
+          "gpu"
+        ],
+        "steps": [
+          {
+            "title": "Install uv",
+            "type": "install",
+            "package": "uv",
+            "with": {
+              "manager": "brew",
+              "name": "uv"
+            }
+          },
+          {
+            "title": "Create .venv (uv)",
+            "type": "run",
+            "command": "uv venv .venv"
+          },
+          {
+            "title": "Install TensorFlow (GPU)",
+            "type": "run",
+            "command": "bash -lc \"source .venv/bin/activate && uv pip install tensorflow\""
+          },
+          {
+            "title": "Note about CUDA",
+            "type": "note",
+            "description": "Ensure CUDA + cuDNN are installed and compatible with your GPU."
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/presidio.yaml",
+      "recipe": {
+        "id": "presidio",
+        "name": "Presidio (PII detection/redaction)",
+        "description": "Install Presidio analyzer + anonymizer for PII redaction.",
+        "aliases": [
+          "redaction",
+          "pii"
+        ],
+        "capabilities": [
+          "redaction",
+          "privacy"
+        ],
+        "steps": [
+          {
+            "title": "Install uv",
+            "type": "install",
+            "package": "uv",
+            "with": {
+              "manager": "brew",
+              "name": "uv"
+            }
+          },
+          {
+            "title": "Create .venv (uv)",
+            "type": "run",
+            "command": "uv venv .venv"
+          },
+          {
+            "title": "Install Presidio packages",
+            "type": "run",
+            "command": "bash -lc \"source .venv/bin/activate && uv pip install presidio-analyzer presidio-anonymizer\""
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/mediapipe.yaml",
+      "recipe": {
+        "id": "mediapipe",
+        "name": "MediaPipe",
+        "description": "Install MediaPipe for computer vision pipelines.",
+        "aliases": [
+          "computer-vision",
+          "cv"
+        ],
+        "capabilities": [
+          "computer-vision"
+        ],
+        "steps": [
+          {
+            "title": "Install uv",
+            "type": "install",
+            "package": "uv",
+            "with": {
+              "manager": "brew",
+              "name": "uv"
+            }
+          },
+          {
+            "title": "Create .venv (uv)",
+            "type": "run",
+            "command": "uv venv .venv"
+          },
+          {
+            "title": "Install MediaPipe",
+            "type": "run",
+            "command": "bash -lc \"source .venv/bin/activate && uv pip install mediapipe\""
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/markdown-pandoc.yaml",
+      "recipe": {
+        "id": "markdown-pandoc",
+        "name": "Markdown + Pandoc",
+        "description": "Install Pandoc for robust Markdown conversion.",
+        "aliases": [
+          "markdown"
+        ],
+        "capabilities": [
+          "markdown",
+          "docs"
+        ],
+        "steps": [
+          {
+            "title": "Install Pandoc",
+            "type": "install",
+            "package": "pandoc",
+            "with": {
+              "manager": "brew",
+              "name": "pandoc"
+            }
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/latex.yaml",
+      "recipe": {
+        "id": "latex",
+        "name": "LaTeX",
+        "description": "Install MacTeX for LaTeX toolchain.",
+        "aliases": [
+          "tex"
+        ],
+        "capabilities": [
+          "latex",
+          "docs"
+        ],
+        "steps": [
+          {
+            "title": "Install MacTeX",
+            "type": "install",
+            "package": "mactex",
+            "with": {
+              "manager": "brew",
+              "name": "mactex"
+            }
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/nextjs-tailwind-ui.yaml",
+      "recipe": {
+        "id": "nextjs-tailwind-ui",
+        "name": "Next.js + Tailwind UI",
+        "description": "Scaffold a Next.js app with Tailwind UI-style layout.",
+        "aliases": [
+          "next-stack",
+          "next-ui"
+        ],
+        "capabilities": [
+          "frontend-app"
+        ],
+        "steps": [
+          {
+            "title": "Create Next.js app (pnpm)",
+            "type": "run",
+            "command": "pnpm dlx create-next-app@latest <project-name> --ts --tailwind --app --eslint"
+          },
+          {
+            "title": "Install dependencies",
+            "type": "run",
+            "command": "cd <project-name> && pnpm install"
+          },
+          {
+            "title": "Add Tailwind UI-style starter layout",
+            "type": "run",
+            "command": "cd <project-name> && cat > app/page.tsx <<'PAGE'\nexport default function Home() {\n  return (\n    <main className=\"min-h-screen bg-white text-zinc-900\">\n      <header className=\"border-b border-zinc-200\">\n        <div className=\"mx-auto flex max-w-6xl items-center justify-between px-6 py-5\">\n          <div className=\"text-lg font-semibold\">AgentKit</div>\n          <nav className=\"hidden gap-6 text-sm md:flex\">\n            <a className=\"hover:underline\" href=\"#\">Docs</a>\n            <a className=\"hover:underline\" href=\"#\">Registry</a>\n            <a className=\"hover:underline\" href=\"#\">Templates</a>\n            <a className=\"hover:underline\" href=\"#\">Support</a>\n          </nav>\n          <button className=\"rounded-md border border-zinc-300 px-3 py-1.5 text-sm\">Get started</button>\n        </div>\n      </header>\n\n      <section className=\"mx-auto grid max-w-6xl gap-10 px-6 py-12 md:grid-cols-2\">\n        <div>\n          <p className=\"text-sm font-medium text-zinc-500\">Capability Provisioning</p>\n          <h1 className=\"mt-3 text-4xl font-semibold tracking-tight md:text-5xl\">\n            Build agent-ready apps without guesswork.\n          </h1>\n          <p className=\"mt-4 text-base text-zinc-600\">\n            AgentKit turns messy setup into deterministic recipes. Ship faster, waste fewer tokens.\n          </p>\n          <div className=\"mt-6 flex gap-3\">\n            <button className=\"rounded-md bg-zinc-900 px-4 py-2 text-sm text-white\">Install AgentKit</button>\n            <button className=\"rounded-md border border-zinc-300 px-4 py-2 text-sm\">View docs</button>\n          </div>\n        </div>\n        <div className=\"rounded-2xl border border-zinc-200 bg-zinc-50 p-6\">\n          <div className=\"grid gap-4\">\n            {[\n              { title: 'Search', desc: 'Discover capabilities fast.' },\n              { title: 'Inspect', desc: 'See steps before running.' },\n              { title: 'Add', desc: 'Install with confidence.' }\n            ].map((card) => (\n              <div key={card.title} className=\"rounded-xl border border-zinc-200 bg-white p-4 shadow-sm\">\n                <div className=\"text-sm font-semibold\">{card.title}</div>\n                <div className=\"mt-1 text-sm text-zinc-600\">{card.desc}</div>\n              </div>\n            ))}\n          </div>\n        </div>\n      </section>\n\n      <section className=\"border-t border-zinc-200 bg-zinc-50\">\n        <div className=\"mx-auto grid max-w-6xl gap-6 px-6 py-10 md:grid-cols-3\">\n          {[\n            'Deterministic installs',\n            'Agent-friendly outputs',\n            'Composable capabilities'\n          ].map((item) => (\n            <div key={item} className=\"rounded-xl border border-zinc-200 bg-white p-4\">\n              <div className=\"text-sm font-semibold\">{item}</div>\n              <p className=\"mt-2 text-sm text-zinc-600\">Built for AI coding workflows.</p>\n            </div>\n          ))}\n        </div>\n      </section>\n    </main>\n  );\n}\nPAGE\n"
+          },
+          {
+            "title": "Note about Tailwind UI",
+            "type": "note",
+            "description": "Tailwind UI components require a paid license; replace the layout with your licensed components."
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/r.yaml",
+      "recipe": {
+        "id": "r",
+        "name": "R",
+        "description": "Install R plus tidyverse and lme4 for statistics workflows.",
+        "aliases": [
+          "r-lang",
+          "rstats"
+        ],
+        "capabilities": [
+          "data-science",
+          "statistics"
+        ],
+        "package": "r",
+        "steps": [
+          {
+            "title": "Install R (brew)",
+            "type": "install",
+            "package": "r",
+            "with": {
+              "manager": "brew",
+              "name": "r"
+            }
+          },
+          {
+            "title": "Install R packages",
+            "type": "run",
+            "command": "R -e \"install.packages(c('tidyverse','lme4'), repos='https://cloud.r-project.org')\""
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/chromium.yaml",
+      "recipe": {
+        "id": "chromium",
+        "name": "Chromium",
+        "description": "Install Chromium for browser automation and headless testing.",
+        "aliases": [
+          "chrome",
+          "browser-chromium"
+        ],
+        "capabilities": [
+          "browser",
+          "web-automation"
+        ],
+        "package": "playwright",
+        "steps": [
+          {
+            "title": "Install Playwright Chromium",
+            "type": "install",
+            "description": "Install Playwright which bundles Chromium automation support",
+            "package": "playwright"
+          },
+          {
+            "title": "Verify Chromium binary",
+            "type": "run",
+            "command": "pnpm exec playwright install chromium"
+          }
+        ],
+        "tags": [
+          "automation",
+          "browser"
+        ]
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/puppeteer.yaml",
+      "recipe": {
+        "id": "puppeteer",
+        "name": "Puppeteer",
+        "description": "Use Puppeteer to drive Chrome/Chromium automation tasks.",
+        "aliases": [
+          "pptr"
+        ],
+        "capabilities": [
+          "browser",
+          "web-automation"
+        ],
+        "package": "puppeteer",
+        "steps": [
+          {
+            "title": "Install Puppeteer",
+            "type": "install",
+            "package": "puppeteer"
+          },
+          {
+            "title": "Sanity check launch",
+            "type": "run",
+            "command": "node -e \"import('puppeteer').then(async p=>{const b=await p.launch({headless:true});await b.close();})\""
+          }
+        ],
+        "tags": [
+          "automation",
+          "browser"
+        ]
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/selenium.yaml",
+      "recipe": {
+        "id": "selenium",
+        "name": "Selenium",
+        "description": "Use Selenium WebDriver for browser automation across drivers.",
+        "aliases": [
+          "webdriver"
+        ],
+        "capabilities": [
+          "browser",
+          "web-automation"
+        ],
+        "package": "selenium-webdriver",
+        "steps": [
+          {
+            "title": "Install Selenium WebDriver",
+            "type": "install",
+            "package": "selenium-webdriver"
+          },
+          {
+            "title": "Add browser driver",
+            "type": "note",
+            "description": "Install a compatible driver binary (chromedriver or geckodriver)"
+          }
+        ],
+        "tags": [
+          "automation",
+          "browser"
+        ]
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/web-automation.yaml",
+      "recipe": {
+        "id": "web-automation",
+        "name": "Web Automation Capability",
+        "description": "Install Chromium + Puppeteer with safety checks for web automation.",
+        "aliases": [
+          "scrape"
+        ],
+        "capabilities": [
+          "web-automation"
+        ],
+        "steps": [
+          {
+            "title": "Install Chromium",
+            "type": "install",
+            "package": "chromium",
+            "with": {
+              "manager": "brew",
+              "name": "chromium"
+            }
+          },
+          {
+            "title": "Install Puppeteer",
+            "type": "install",
+            "package": "puppeteer",
+            "with": {
+              "manager": "npm",
+              "name": "puppeteer"
+            }
+          },
+          {
+            "title": "Configure bot safeguards",
+            "type": "check",
+            "description": "Confirm usage follows target site terms and robots directives"
+          }
+        ],
+        "tags": [
+          "capability"
+        ]
+      }
+    },
+    {
+      "sourceId": "official",
+      "reference": "https://raw.githubusercontent.com/elclaudioabierto/registry/main/recipes/ollama-qwen.yaml",
+      "recipe": {
+        "id": "ollama-qwen",
+        "name": "Ollama + Qwen",
+        "description": "Install Ollama and pull a laptop-friendly Qwen model.",
+        "aliases": [
+          "ollama",
+          "qwen"
+        ],
+        "capabilities": [
+          "ai"
+        ],
+        "steps": [
+          {
+            "title": "Install Ollama (macOS / brew)",
+            "type": "install",
+            "package": "ollama",
+            "with": {
+              "manager": "brew",
+              "name": "ollama"
+            }
+          },
+          {
+            "title": "Start Ollama",
+            "type": "run",
+            "command": "ollama serve &"
+          },
+          {
+            "title": "Pull Qwen (7B, good default for most laptops)",
+            "type": "run",
+            "command": "ollama pull qwen2.5:7b"
+          },
+          {
+            "title": "(Optional) Pull Qwen (3B, for 8GB RAM)",
+            "type": "run",
+            "command": "ollama pull qwen2.5:3b"
+          }
+        ],
+        "tags": []
+      }
+    }
+  ]
+}

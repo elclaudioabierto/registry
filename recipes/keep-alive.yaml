@@ -1,0 +1,24 @@
+kind: capability
+id: caffeinate-alias
+name: Caffeinate Alias (zsh)
+description: Short alias for macOS caffeinate command to keep the system awake during long tasks.
+aliases: [aliases, zsh, macos]
+capabilities: [devtools]
+steps:
+  - title: Append caffeinate alias to ~/.zshrc
+    type: run
+    command: |
+      bash -lc "cat >> ~/.zshrc <<'ALIAS'
+      # AgentKit Caffeinate Alias
+      # Keep system awake (display + system)
+      alias caf='caffeinate -disu'
+
+      # Optional variants
+      alias cafdisplay='caffeinate -d'     # keep display awake
+      alias cafsystem='caffeinate -i'      # keep system awake
+      alias caf1h='caffeinate -disu -t 3600' # stay awake for 1 hour
+      ALIAS"
+
+  - title: Reminder
+    type: note
+    description: Open a new terminal or run `source ~/.zshrc` to load the new alias.
